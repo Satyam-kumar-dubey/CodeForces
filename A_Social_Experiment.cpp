@@ -2,20 +2,21 @@
 using namespace std;
 
 int main() {
-    int test;
-    if (!(cin >> test)) return 0;
-    while (test--) {
-        int n;
-        cin >> n;
+    int testCases;
 
-        if (n == 2) {
+    if (!(cin >> testCases))
+    return 0;
+    
+    while (testCases--) {
+        int value;
+        cin>>value;
+
+        if (value == 2) {
             cout << 2 << endl;
-        } else if (n == 3) {
+        } else if (value == 3) {
             cout << 3 << endl;
         } else {
-            
-            cout << (n % 2) << endl;
+            cout<<(value % 2) << endl;
         }
     }
-    return 0;
 }

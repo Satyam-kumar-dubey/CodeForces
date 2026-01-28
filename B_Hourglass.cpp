@@ -1,35 +1,31 @@
-#include <iostream>
 
+#include<iostream>
 using namespace std;
 
-int fallen(int s, int k, int m)
+int solve(int s, int k, int m)
 {
-    int lastflip = (m / k) * k;
-    int flips = lastflip / k;
-    int timeleft = m - lastflip;
+    int last = (m / k) * k;
+    int flips = last / k;
+    int remainingTime = m - last;
 
-    int sandtop;
+    int st;
     if (k >= s)
-        sandtop = s;
+    st = s;
     else
-        sandtop = (flips % 2 == 0) ? s : k;
+    st = (flips % 2 == 0) ? s : k;
 
-    int t = sandtop - timeleft;
-    return (t < 0) ? 0 : t;
+    int temp = st - remainingTime;
+    return (temp < 0) ? 0 : temp;
 }
 
-int main()
+int main ()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int tests;
-    cin >> tests;
-    while (tests--)
+    int test;
+    cin>>test;
+    while (test--)
     {
-        int s, k, m;
-        cin >> s >> k >> m;
-        cout << fallen(s, k, m) << '\n';
+        int a, b, c;
+        cin>>a>>b>>c;
+        cout<<solve(a, b, c)<<endl;
     }
-    return 0;
 }

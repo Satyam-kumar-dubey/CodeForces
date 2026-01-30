@@ -1,56 +1,40 @@
-#include <iostream>
+#include<iostream>
+#include<vector>
 using namespace std;
 
-bool color(int arr[], int n)
+int main ()
 {
-    bool b = false;
-    int c = 1;
+    int test;
+    cin>>test;
 
-    if (arr[0] % 2 == 0)
+    while(test--)
     {
-        b = true;
-    }
+        int size;
+        cin>>size;
+        vector<int>arr(size);
 
-    int i;
-    for (i = 1; i < n; i++)
-    {
-        if (arr[i] % 2 == 0 && !b)
+        for(int i=0; i<size; i++)
+        cin>>arr[i];
+
+        int sum = 0,even = 0,odd = 0;
+        for(int val : arr)
         {
-            b = true;
-            c++;
+            sum += val;
+            if(val % 2 == 0)
+            even++;
+            else
+            odd++;
         }
-        else if (arr[i] % 2 != 0 && b)
+        
+        if(sum % 2 != 0)
+        cout<<"NO"<<'\n';
+        else
         {
-            b = false;
-            c++;
+            if(even > 0 || odd >= 2)
+            cout<<"YES"<<'\n';
+            else
+            cout<<"NO"<<'\n';
         }
+        
     }
-
-    if (c == i)
-    {
-        return true;
-    }
-    return false;
-}
-
-int main()
-{
-    int tests;
-    cin >> tests;
-
-    while (tests--)
-    {
-        int n;
-        cin >> n;
-
-        int arr[n];
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr[i];
-        }
-
-        cout << (color(arr, n) ? "YES" : "NO") << endl;
-    }
-
-    return 0;
 }

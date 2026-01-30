@@ -1,30 +1,36 @@
+
 #include <iostream>
 #include<vector>
 using namespace std;
 
 int main() {
 
-    int test;
-    cin >> test;
-    while (test--) {
-        int n;
-        cin >> n;
+    int totalTestCases;
+    cin>>totalTestCases;
 
-        vector<int> v(n + 2, 0);
-        for (int i = 0; i < n; i++) {
-            int x;
-            cin >> x;
-            v[x]++;
-        }
+    while (totalTestCases--) 
+    {
+        int size;
+        cin>>size;
+        vector<int> arr(size + 2, 0);
 
-        if (v[0] == 0) {
-            cout <<"NO"<<endl;
+        for (int i=0; i<size; i++) 
+        {
+            int value;
+            cin>>value;
+            arr[value]++;
         }
-        else if (v[0] >= 2 && v[1] == 0) {
-            cout <<"NO"<<endl;
+        if (arr[0]==0) 
+        {
+            cout<<"NO"<<'\n';
         }
-        else {
-            cout <<"YES"<<endl;
+        else if (arr[0] >= 2 && arr[1] == 0) 
+        {
+            cout<<"NO"<<'\n';
+        }
+        else 
+        {
+            cout<<"YES"<<'\n';
         }
     }
 

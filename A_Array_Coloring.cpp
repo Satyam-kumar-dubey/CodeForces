@@ -11,30 +11,32 @@ int main ()
     {
         int size;
         cin>>size;
-        vector<int>arr(size);
 
+        vector<int>v(size);
         for(int i=0; i<size; i++)
-        cin>>arr[i];
+        cin>>v[i];
 
-        int sum = 0,even = 0,odd = 0;
-        for(int val : arr)
+        if(v[0] % 2 == 0)
         {
-            sum += val;
-            if(val % 2 == 0)
-            even++;
-            else
-            odd++;
+            bool flag = false;
+            for(int i=2; i<size; i=i+2)
+            {
+                if(v[i] % 2 != 0)
+                flag = true;
+            }
+            cout<<(!flag ? "YES" : "NO")<<'\n';
         }
-        
-        if(sum % 2 != 0)
-        cout<<"NO"<<'\n';
-        else
+        else if( v[0] % 2 != 0)
         {
-            if(even > 0 || odd >= 2)
-            cout<<"YES"<<'\n';
-            else
-            cout<<"NO"<<'\n';
+            bool flag = false;
+            for(int i=2; i<size; i=i+2)
+            {
+                if(v[i] % 2 == 0)
+                flag = true;
+            }
+            cout<<(!flag ? "YES" : "NO")<<'\n';
         }
-        
     }
+        
+    
 }

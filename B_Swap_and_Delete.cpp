@@ -1,5 +1,6 @@
 
 #include<iostream>
+#include<string>
 using namespace std;
 
 int main ()
@@ -18,9 +19,6 @@ int main ()
             continue;
         }
 
-        string temp = s;
-        sort(temp.begin(),temp.end());
-
         int zero = 0, one = 0;
         for(char c : s)
         {
@@ -29,13 +27,34 @@ int main ()
             else
             one++;
         }
-        if(zero == one)
+
+        bool flag = false;
+        for(char c : s)
         {
-            cout<<0<<'\n';
+            if(c == '0')
+            {
+                if(one >0)
+                one--;
+                else
+                {
+                    cout<<zero<<'\n';
+                    flag = true;
+                    break;
+                }
+            }
+            else
+            {
+                if(zero > 0)
+                zero--;
+                else
+                {
+                    cout<<one<<'\n';
+                    flag = true;
+                    break;
+                }
+            }
         }
-        else
-        {
-            cout<<(one+zero) - 2<<'\n';
-        }
+        if(!flag)
+        cout<<0<<'\n';
     }
 }

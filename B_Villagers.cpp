@@ -6,6 +6,9 @@ using namespace std;
 
 int main ()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int test;
     cin>>test;
 
@@ -13,18 +16,17 @@ int main ()
     {
         int size;
         cin>>size;
+        vector<int>arr(size);
 
-        vector<int>v(size);
         for(int i=0; i<size; i++)
-        cin>>v[i];
+        cin>>arr[i];
 
-        sort(v.rbegin(),v.rend());
+        sort(arr.rbegin(),arr.rend());
 
         long long ans = 0;
         for(int i=0; i<size; i=i+2)
-        {
-            ans += v[i];
-        }
+        ans += arr[i];
+
         cout<<ans<<'\n';
     }
 }

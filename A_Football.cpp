@@ -1,39 +1,17 @@
 
 #include<iostream>
-#include<unordered_map>
-#include<climits>
 #include<string>
 using namespace std;
 
-int main ()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
-    unordered_map<string,int>m;
+    string s;
+    cin>>s;
 
-    while(test--)
-    {
-        string s;
-        cin>>s;
-
-        if(m.count(s))
-        m[s]++;
-        else
-        m[s] = 1;
-    }
-    int maxiVal = INT_MIN;
-    string maxiString;
-    
-    for(auto &it : m)
-    {
-        if(it.second > maxiVal)
-        {
-            maxiVal = it.second;
-            maxiString = it.first;
-        }
-    }
-    cout<<maxiString<<'\n';
+    if(s.find("0000000") != string::npos || s.find("1111111") != string::npos)
+    cout<<"YES";
+    else
+    cout<<"NO";
 }

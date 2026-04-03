@@ -1,29 +1,24 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include<iostream>
+#include<string>
 using namespace std;
 
-string number(string s)
+int main()
 {
-    int n = s.size();
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    string x;
+    cin>>x;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < x.length(); i++)
     {
-        int d = s[i] - '0';
-        int dig = min(d, 9 - d);
+        int d = x[i] - '0';
+        int inv = 9 - d;
 
-       
-        if (i == 0 && dig == 0)
-            continue;
-
-        s[i] = char(dig + '0');
+        if (i == 0 && inv == 0)
+        continue;  
+        if (inv < d)
+        x[i] = char(inv + '0');
     }
-    return s;
-}
 
-int main ()
-{
-    string n;         
-    cin >> n;
-    cout << number(n);
+    cout<<x<<'\n';
 }

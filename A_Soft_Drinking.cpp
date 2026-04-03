@@ -4,23 +4,25 @@
 #include<algorithm>
 using namespace std;
 
-int SoftDrink(vector<int>&v)
+int solve(vector<int>&a)
 {
-    int drink = (v[1]*v[2]) / v[6];
-    int lime = v[3]*v[4];
-    int salt = v[5] / v[7];
+    int d = (a[1]*a[2]) / a[6];
+    int l = a[3]*a[4];
+    int s = a[5] / a[7];
 
-    int ans = min(drink,lime);
-    ans = min(ans,salt);
+    int res = min(d,l);
+    res = min(res,s);
 
-    return (ans/v[0]);
+    return (res/a[0]);
 }
 
 int main ()
 {
-    vector<int>v(8);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    vector<int>arr(8);
     for (int i = 0; i < 8; i++)
-    cin >> v[i];
+    cin>>arr[i];
 
-    cout<<SoftDrink(v);
+    cout<<solve(arr);
 }

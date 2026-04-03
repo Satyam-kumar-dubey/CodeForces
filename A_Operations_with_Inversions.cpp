@@ -23,9 +23,9 @@ int main()
 
         int maxi=0, k=0;
 
-        for (int x : v)
+        for (int i : v)
         {
-            if (x >= maxi)
+            if (i >= maxi)
             {
                 k++;
                 maxi = x;

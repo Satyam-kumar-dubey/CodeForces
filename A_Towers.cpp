@@ -1,39 +1,36 @@
-
 #include<iostream>
 #include<vector>
 #include<unordered_map>
 #include<algorithm>
 using namespace std;
 
-vector<int>solve (vector<int>&arr)
+vector<int>s (vector<int>&v)
 {
     
     unordered_map<int,int>m;
-    for(int i=0; i<arr.size(); i++)
-    {
-        m[arr[i]]++;
-    }
+    for(int i=0; i<v.size(); i++)
+    m[v[i]]++;
     
-    int height = INT_MIN;
+    int h=INT_MIN;
     for(auto i: m)
-    {
-        height = max(height,i.second);
-    }
+    h=max(h,i.second);
 
-    int noOfTower = m.size();
-    return {height,noOfTower};
+    int n = m.size();
+    return {h,n};
 
 }
 
 int main ()
 {
-    int n;
-    cin>>n;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin>>t;
 
-    vector<int>arr(n);
-    for(int i=0; i<n; i++)
-    cin>>arr[i];
+    vector<int>v(t);
+    for(int i=0; i<t; i++)
+    cin>>v[i];
 
-    vector<int>res = solve(arr);
-    cout<<res[0]<<" "<<res[1];
+    vector<int>a = s(v);
+    cout<<a[0]<<" "<<a[1];
 }

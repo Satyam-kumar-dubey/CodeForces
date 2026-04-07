@@ -1,27 +1,25 @@
-
 #include<iostream>
 using namespace std;
 
-string solve(string s)
+string check(string s)
 {
-    string temp = "hello";
-    int temp1 = 0;
+    string t = "hello";
+    int t1 = 0;
 
     for(int i=0; i<s.size(); i++)
     {
-        if(s[i] == temp[temp1])
-        temp1++;
+        if(s[i] == t[t1])
+        t1++;
         
-        if(temp1 == temp.size())
+        if(t1 == t.size())
         return "YES";
     }
-
     return "NO";
 }
 int main ()
 {
-    string s;
-    cin>>s;
+    string x;
+    cin>>x;
 
-    cout<<solve(s);
+    cout<<check(x);
 }

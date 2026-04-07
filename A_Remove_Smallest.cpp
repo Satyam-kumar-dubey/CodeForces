@@ -1,20 +1,21 @@
-
 #include<iostream>
 #include<vector>
 #include<algorithm>
 using namespace std;
 
-string solve(vector<int>&v)
+string s(vector<int>&a)
 {
-    if(v.size() == 1)
+    if(a.size() == 1)
     return "YES";
-    sort(v.begin(),v.end());
 
-    for(int i=1; i<v.size(); i++)
+    sort(a.begin(),a.end());
+
+    for(int i=1; i<a.size(); i++)
     {
-        if(v[i]-v[i-1] > 1)
+        if(a[i]-a[i-1] > 1)
         return "NO";
     }
+
     return "YES";
 
 }
@@ -25,13 +26,14 @@ int main ()
     cin>>n;
     for(int i=0; i<n; i++)
     {
-        int a;
-        cin>>a;
-        vector<int>v(a);
-        for(int j=0; j<a; j++)
+        int x;
+        cin>>x;
+
+        vector<int>a(x);
+        for(int j=0; j<x; j++)
         {
-            cin>>v[j];
+            cin>>a[j];
         }
-        cout<<solve(v)<<endl;
+        cout<<s(a)<<endl;
     }
 }

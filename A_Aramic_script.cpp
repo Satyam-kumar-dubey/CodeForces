@@ -1,38 +1,24 @@
-
 #include<iostream>
-#include<string>
-#include<vector>
+#include<set>
 #include<algorithm>
-#include<unordered_set>
 using namespace std;
 
-int main ()
+int main()
 {
-    unordered_set<string>st;
-    int n;
-    cin>>n;
-    
-    for(int i=0; i<n; i++)
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin>>t;
+    set<string>st;
+
+    while(t--)
     {
-        string s;
-        cin>>s;
-
-        vector<char>ch(26,0);
-        string key = "";
-
-        for(char c : s)
-        {
-            if(!ch[c-'a'])
-            {
-                ch[c-'a']= 1;
-                key += c;
-            }
-        }
-
-        sort(key.begin(),key.end());
-        st.insert(key);
+        string str;
+        cin>>str;
+        sort(str.begin(), str.end());
+        str.erase(unique(str.begin(), str.end()), str.end());
+        st.insert(str);
     }
-
-
-    cout<<st.size();
+    cout<<st.size()<<'\n';
 }

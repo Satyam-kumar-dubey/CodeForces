@@ -3,22 +3,17 @@
 #include<cmath>
 using namespace std;
 
-int main ()
+int main()
 {
-    int a,b,s;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    long long a,b,s;
     cin>>a>>b>>s;
 
-    int steps = abs(a) + abs(b);
-    if(steps == s)
-    cout<<"Yes";
-    else if(steps > s)
-    cout<<"No";
-    else if(steps < s)
-    {
-        int remaining = s - steps;
-        if(remaining % 2 != 0)
-        cout<<"No";
-        else
-        cout<<"Yes";
-    }
+    long long d = abs(a) + abs(b);
+
+    if(s >= d && (s - d) % 2 == 0)
+    cout<<"Yes"<<"\n";
+    else
+    cout<<"No"<<"\n";
 }

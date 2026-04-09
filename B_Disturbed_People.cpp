@@ -1,27 +1,23 @@
-
 #include<iostream>
 #include<vector>
 using namespace std;
 
 int main ()
 {
-    int a;
-    cin>>a;
-    vector<int>arr(a);
-    for(int i =0; i<a; i++)
-    {
-        cin>>arr[i];
-    }
+    int s, c=0;
+    cin>>s;
+    vector<int>v(s);
+    for(int i =0; i<s; i++)
+    cin>>v[i];
 
-    int count =0;
-
-    for(int i=1; i<arr.size()-1; i++)
+    for(int j=1; j<v.size()-1; j++)
     {
-        if(arr[i] == 0 && arr[i-1] == 1 && arr[i+1] == 1)
+        if(v[j]==0 && v[j-1]==1 && v[j+1]==1)
         {
-            count++;
-            arr[i+1] = 0;
+            c++;
+            v[j+1]=0;
         }
     }
-    cout<<count;
+
+    cout<<c;
 }

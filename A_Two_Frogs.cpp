@@ -1,5 +1,6 @@
 
 #include<iostream>
+#include<cmath>
 using namespace std;
 
 int main ()
@@ -15,6 +16,6 @@ int main ()
         int n,a,b;
         cin>>n>>a>>b;
         
-        cout<<(n%2 == 0 ? "NO" : "YES")<<'\n';
+        cout<<(abs(a-b)%2 == 0 ? "YES" : "NO")<<'\n';
     }
 }

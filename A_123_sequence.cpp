@@ -1,26 +1,27 @@
-
 #include<iostream>
-#include<vector>
 #include<algorithm>
 using namespace std;
 
-int main ()
+int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
     cin>>n;
 
-    vector<int>arr(n);
+    int a=0, b=0, c=0;
     for(int i=0; i<n; i++)
     {
-        cin>>arr[i];
-    }
+        int t;
+        cin>>t;
 
-    vector<int>count(4,0);
-    for(int i=0; i<arr.size(); i++)
-    {
-        count[arr[i]]++;
+        if (t == 1)
+        a++;
+        else if (t == 2)
+        b++;
+        else
+        c++;
     }
-    int ans = max({count[1],count[2],count[3]});
-
-    cout<<(n-ans);
+    cout<<n - max({a, b, c})<<'\n';
 }

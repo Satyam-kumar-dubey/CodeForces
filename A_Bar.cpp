@@ -1,26 +1,27 @@
-
 #include<iostream>
 using namespace std;
 
 int main()
 {
-    int n;
-    cin>>n;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin>>t;
 
-    int count=0;
-    while(n--)
+    int c=0;
+    while(t--)
     {
-        string val;
-        cin>>val;
-
-        if(isdigit(val[0]))
+        string s;
+        cin>>s;
+        if(isdigit(s[0]))
         {
-            int age = stoi(val);
-            if(age < 18)
-            count++;
+            int x = stoi(s);
+            if(x<18)
+            c++;
         }
-        else if( val == "ABSINTH" || val == "BEER" || val == "BRANDY" || val == "CHAMPAGNE" || val == "GIN" || val == "RUM"|| val == "SAKE"|| val == "TEQUILA" ||val == "VODKA"|| val == "WHISKEY" || val == "WINE" ) 
-        count++;
+        else if( s == "ABSINTH" || s == "BEER" || s == "BRANDY" || s == "CHAMPAGNE" || s == "GIN" || s == "RUM"|| s == "SAKE"|| s == "TEQUILA" ||s == "VODKA"|| s == "WHISKEY" || s == "WINE" ) 
+        c++;
     }
-    cout<<count;
+
+    cout<<c<<'\n';
 }

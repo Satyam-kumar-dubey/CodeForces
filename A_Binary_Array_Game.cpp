@@ -1,32 +1,27 @@
+
 #include <iostream>
-#include<vector>
+#include <vector>
 using namespace std;
 
-void game(vector<int>& arr) {
-    if (arr[0] == 0 && arr[arr.size() - 1] == 0) {
-        cout << "Bob\n";
-    } else {
-        cout << "Alice\n";
-    }
-}
-
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int tests;
-    cin >> tests;
-
-    while (tests--) {
+    int t;
+    cin>>t;
+    while (t--)
+    {
         int n;
-        cin >> n;
-        vector<int> arr(n);
+        cin>>n;
+        vector<int>a(n);
+        for (int i = 0; i < n; i++) 
+        cin>>a[i];
 
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
-
-        game(arr);
+        if(a[0] == 1 || a[n - 1] == 1)
+        cout << "Alice\n";
+        else
+        cout << "Bob\n";
     }
-    return 0;
+
 }

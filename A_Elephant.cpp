@@ -1,15 +1,14 @@
-
 #include<iostream>
 using namespace std;
 
 int main ()
 {
-    int n;
-    cin>>n;
+    int t;
+    cin>>t;
 
-    int quotient = n/5;
-    int remainder = n%5;
+    int x = t/5;
+    int y = t%5;
 
-    cout<< (remainder == 0 ? quotient : quotient+1);
+    cout<< (y == 0 ? x : x+1);
 }
     

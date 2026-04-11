@@ -1,17 +1,23 @@
+
 #include<iostream>
 using namespace std;
 
 int main ()
 {
-    int n;
-    cin>>n;
-    while(n--)
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin>>t;
+    
+    while(t--)
     {
-        int val;
-        cin>>val;
-        if(val % 3 == 0)
-        cout<<"Second"<<endl;
+        int n;
+        cin>>n;
+
+        if(n%3==0)
+        cout<<"Second"<<"\n";
         else
-        cout<<"First"<<endl;
+        cout<<"First"<<"\n";
     }
 }

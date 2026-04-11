@@ -1,22 +1,26 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-int main() {
-    int testCases;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    if (!(cin >> testCases))
-    return 0;
-    
-    while (testCases--) {
-        int value;
-        cin>>value;
+    int t;
+    cin>>t;
 
-        if (value == 2) {
-            cout << 2 << endl;
-        } else if (value == 3) {
-            cout << 3 << endl;
-        } else {
-            cout<<(value % 2) << endl;
-        }
+    while (t--)
+    {
+        int n;
+        cin>>n;
+
+        if(n==2)
+        cout<<2<<'\n';
+        else if(n == 3)
+        cout<<3<<'\n';
+        else if(n % 2 == 0)
+        cout<<0<<'\n';
+        else
+        cout<<1<<'\n';
     }
 }

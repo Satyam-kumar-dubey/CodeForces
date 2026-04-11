@@ -1,35 +1,22 @@
 #include<iostream>
 using namespace std;
 
-int main ()
+int main()
 {
-    int num;
-    cin>>num;
-    
-    string s1  = "I hate";
-    string s2 = "I love";
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;
+    cin>>n;
 
-    string ans = "";
-    int count = 0;
-    while(count != num)
+    for(int i=1; i<=n; i++)
     {
-        ans += s1;
-        count++;
-
-        if(count == num)
-        {
-            cout<<(ans +" "+ "it");
-            break;
-        }
-         
-        ans += " that ";
-        ans += s2;
-        count++;
-        if(count == num)
-        {
-            cout<<(ans + " "+ "it");
-            break;
-        }
-        ans += " that ";
+        if(i % 2 == 1)
+        cout<<"I hate";
+        else
+        cout<<"I love";
+        if(i==n)
+        cout<<" it";
+        else
+        cout<<" that ";
     }
 }

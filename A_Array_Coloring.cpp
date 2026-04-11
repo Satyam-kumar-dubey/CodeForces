@@ -2,41 +2,35 @@
 #include<vector>
 using namespace std;
 
-int main ()
+int main()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+
+    while(t--)
     {
-        int size;
-        cin>>size;
+        int n;
+        cin>>n;
 
-        vector<int>v(size);
-        for(int i=0; i<size; i++)
-        cin>>v[i];
-
-        if(v[0] % 2 == 0)
+        vector<int>v(n + 1);
+        for (int i=1; i<=n; i++)
         {
-            bool flag = false;
-            for(int i=2; i<size; i=i+2)
-            {
-                if(v[i] % 2 != 0)
-                flag = true;
-            }
-            cout<<(!flag ? "YES" : "NO")<<'\n';
+            int x;
+            cin>>x;
+            v[x]=i;
         }
-        else if( v[0] % 2 != 0)
+        bool f=true;
+        for (int x=1; x<n; x++)
         {
-            bool flag = false;
-            for(int i=2; i<size; i=i+2)
+            if((v[x] % 2)==(v[x + 1]%2))
             {
-                if(v[i] % 2 == 0)
-                flag = true;
+                f=false;
+                break;
             }
-            cout<<(!flag ? "YES" : "NO")<<'\n';
         }
+        cout<<(f ? "YES" : "NO")<<"\n";
     }
-        
-    
 }

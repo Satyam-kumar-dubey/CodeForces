@@ -2,36 +2,37 @@
 #include<vector>
 using namespace std;
 
-bool check(vector<int>&v)
+int main()
 {
-    for(int i=1; i<v.size(); i++)
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin>>t;
+
+    while(t--)
     {
-        if(v[i] < v[i-1])
-        {
-            return false;
-            break;
-        }
-    }
-    return true;
-}
+        int n,k;
+        cin>>n>>k;
 
-int main ()
-{
-    int test;
-    cin>>test;
+        vector<long long>v(n);
+        for (int i = 0; i < n; i++)
+        cin>>v[i];
 
-    for(int i=0; i<test; i++)
-    {
-        int a,b;
-        cin>>a>>b;
-        vector<int>v(a);
-        for(int j=0; j<a; j++)
-        cin>>v[j];
-
-        if(b==1 && !check(v))
-        cout<<"NO"<<endl;
+        if (k > 1)
+        cout<<"YES"<<"\n";
         else
-        cout<<"YES"<<endl;
-
+        {
+            bool f = true;
+            for (int i = 1; i < n; i++)
+            {
+                if (v[i]<v[i - 1])
+                {
+                    f = false;
+                    break;
+                }
+            }
+            cout<<(f ? "YES" : "NO")<<"\n";
+        }
     }
 }

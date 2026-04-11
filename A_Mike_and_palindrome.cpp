@@ -1,22 +1,25 @@
-
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main ()
 {
-    string s;
-    cin>>s;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    int start = 0, end = s.size()-1, count = 0;
-    while(start < end)
+    string x;
+    cin>>x;
+    int st=0, en=x.size()-1,c=0;
+
+    while(st < en)
     {
-        if(s[start] != s[end])
-        count++;
-        start++;
-        end--;
+        if(x[st]!=x[en])
+        c++;
+        st++; 
+        en--;
     }
-    if(count == 0 && s.size()%2 != 0)
+
+    if(c==0 && x.size()%2!=0)
     cout<<"YES";
     else
-    cout<<(count == 1 ? "YES" : "NO");
+    cout<<(c == 1 ? "YES" : "NO");
 }

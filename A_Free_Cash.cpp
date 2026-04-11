@@ -1,36 +1,35 @@
-
 #include<iostream>
-#include<vector>
-#include<algorithm>
-#include<unordered_map>
 using namespace std;
 
-int solve(vector<pair<int,int>>&v)
+int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    unordered_map<int,int>m;
-    for(int i=0; i<v.size(); i++)
-    {
-       int time = v[i].first*60 + v[i].second;
-       m[time]++;
-    }
-    int count = INT_MIN;
-    for(auto &i: m)
-    {
-        count = max(count,i.second);
-    }
-    return count;
-    
-}
-
-int main ()
-{
     int n;
     cin>>n;
-    vector<pair<int,int>>v(n);
-    for(int i=0; i<n; i++)
+
+    int h,m;
+    cin>>h>>m;
+
+    int H=h, M=m;
+    int c=1, a=1;
+
+    for(int i = 1; i < n; i++)
     {
-        cin>>v[i].first>>v[i].second;
+        cin>>h>>m;
+        if(h==H && m==M)
+        c++;
+        else
+        {
+            c = 1;
+            H = h;
+            M = m;
+        }
+
+        if (c > a)
+        a = c;
     }
-    cout<<solve(v);
+
+    cout<<a<<'\n';
 }

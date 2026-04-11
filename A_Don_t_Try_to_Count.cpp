@@ -1,39 +1,33 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
-int main ()
+int main()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+
+    while(t--)
     {
         int n,m;
         cin>>n>>m;
-        string s1,s2;
-        cin>>s1>>s2;
 
-        if(s1.find(s2) != string::npos)
-        {
-            cout<<0<<endl;
-            continue;
-        }
+        string x,s;
+        cin>>x>>s;
 
-        int count = 0;
-        bool flag = false;
-        while(s1.size() < 2*s2.size() || count == 0)
+        int a = -1;
+        for(int i=0; i<=6; i++)
         {
-            s1 += s1;
-            count++;
-            if(s1.find(s2) != string::npos)
+            if(x.find(s) != string::npos)
             {
-                cout<<count<<endl;
-                flag = true;
+                a = i;
                 break;
             }
-            
+            x += x;
         }
-        if(!flag)
-        cout<<-1<<endl;
+        cout<<a<<'\n';
     }
 }

@@ -4,20 +4,23 @@ using namespace std;
 
 int main ()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     long long n;
     cin>>n;
-    long long sum = 0;
-    for(long long i=1; ; i++)
+    long long s=0;
+    for(long long j=1; ;j++)
     {
-        sum += i;
-        if(sum == n)
+        s += j;
+        if(s==n)
         {
-            cout<<i;
+            cout<<j;
             break;
         }
-        else if(sum > n)
+        else if(s>n)
         {
-            cout<<(n-(sum-i));
+            cout<<(n-(s-j));
             break;
         }
     }

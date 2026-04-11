@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -6,24 +5,26 @@ using namespace std;
 
 int main()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+
+    while(t--)
     {
         int n;
         cin>>n;
-        vector<int>v(n);
+
+        vector<int>a(n);
         for(int i=0; i<n; i++)
-        cin>>v[i];
+        cin>>a[i];
 
-        int smallest = INT_MAX;
+        int sm=INT_MAX;
         for(int i=1; i<n; i++)
-        smallest = min(smallest,v[i]);
+        sm=min(sm,a[i]);
 
-        if(smallest > v[0])
-        cout<<"YES"<<endl;
-        else
-        cout<<"NO"<<endl;
+        cout<<(sm>a[0] ? "YES" : "NO")<<'\n';
+
     }
 }

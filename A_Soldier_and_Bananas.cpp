@@ -2,21 +2,19 @@
 #include<iostream>
 using namespace std;
 
-int main() {
+int main ()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int k, n, w;
-    cin >> k >> n >> w;
+    int k,n,w;
+    cin>>k>>n>>w;
 
-    long long total_cost = k * (long long)(w * (w + 1)) / 2;
-
-    long long borrow = total_cost - n;
-    
-    if (borrow > 0)
-        cout << borrow << '\n';
-    else
-        cout << 0 << '\n';
-
-    return 0;
+    int c=0;
+    while(w)
+    {
+        c += (k*w);
+        w--;
+    }
+    cout<<(c>n ? c-n : 0)<<'\n';
 }

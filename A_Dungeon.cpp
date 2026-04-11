@@ -1,22 +1,23 @@
+
 #include<iostream>
 using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
-
-    while(test--)
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin>>t;
+    while(t--)
     {
         long long a,b,c;
         cin>>a>>b>>c;
+        long long t=a+b+c;
+        long long mH=t/9;
 
-        long long total = a+b+c;
-        long long minHealth = total / 9;
-
-        if(total % 9 == 0 && a>=minHealth && b>=minHealth && c>=minHealth)
-        cout<<"YES"<<endl;
+        if(t%9==0 && min({a, b, c}) >= t/9)
+        cout<<"YES"<<"\n";
         else
-        cout<<"NO"<<endl;
+        cout<<"NO"<<"\n";
     }
 }

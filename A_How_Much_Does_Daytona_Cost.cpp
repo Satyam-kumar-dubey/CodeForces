@@ -1,25 +1,26 @@
 #include<iostream>
-#include<vector>
-#include<unordered_set>
 using namespace std;
 
-int main ()
+int main()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+
+    while(t--)
     {
         int n,k;
         cin>>n>>k;
-        vector<int>arr(n);
-        for(int i=0; i<n; i++)
-        cin>>arr[i];
-
-        unordered_set<int>s(arr.begin(),arr.end());
-        if(s.count(k))
-        cout<<"YES"<<endl;
-        else
-        cout<<"NO"<<endl;
+        bool f=false;
+        for (int i=0; i<n; i++)
+        {
+            int x;
+            cin>>x;
+            if(x==k)
+            f=true;
+        }
+        cout<<(f ? "YES" : "NO")<<"\n";
     }
 }

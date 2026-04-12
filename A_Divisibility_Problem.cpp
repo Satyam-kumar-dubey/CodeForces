@@ -1,17 +1,19 @@
+
 #include<iostream>
 using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+    while(t--)
     {
-        int a,b;
-        cin>>a>>b;
-
-        int res = a % b;
-        cout<<(res == 0 ? res : b-res)<<endl;
+        int x,y;
+        cin>>x>>y;
+        int r=x%y;
+        cout<<(r==0 ? r : y-r)<<'\n';
     }
 }

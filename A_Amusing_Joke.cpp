@@ -1,24 +1,21 @@
-
 #include<iostream>
-#include<string>
 #include<algorithm>
+#include<string>
 using namespace std;
 
 int main()
 {
-    string newYearMan, christmasMan, shuffled;
-    cin>>newYearMan>>christmasMan>>shuffled;
-
-    string temp = newYearMan + christmasMan;
-    
-    if(temp.size() != shuffled.size())
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    string n,c,x;
+    cin>>n>>c>>x;
+    string t = n + c;
+    if(t.size() != x.size())
     {
         cout<<"NO";
         return 0;
     }
-    
-    sort(temp.begin(),temp.end());
-    sort(shuffled.begin(),shuffled.end());
-
-    cout<<(shuffled == temp ? "YES" : "NO");
+    sort(t.begin(),t.end());
+    sort(x.begin(),x.end());
+    cout<<(x == t ? "YES" : "NO")<<'\n';
 }

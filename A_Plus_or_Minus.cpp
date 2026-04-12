@@ -1,23 +1,23 @@
-
 #include<iostream>
 using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        int a,b,c;
-        cin>>a>>b>>c;
-
-        if(a+b == c)
+        int x,y,z;
+        cin>>x>>y>>z;
+        if(x+y==z)
         {
-            cout<<'+'<<endl;
+            cout<<'+'<<'\n';
             continue;
         }
         else
-        cout<<'-'<<endl;
+        cout<<'-'<<'\n';
     }
 }

@@ -1,21 +1,25 @@
+
 #include<iostream>
 #include<vector>
 using namespace std;
 
 int main ()
 {
-    int num;
-    cin>>num;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;
+    cin>>n;
+    bool f = false;
+    vector<int>v={4,7,74,47,77,444,474,477,744,774,777};
 
-    bool flag = false;
-    vector<int>lucky = {4,7,47,74,77,444,474,477,744,774,777};
-    for(int val : lucky)
+    for(int it:v)
     {
-        if(num % val == 0)
+        if(n%it == 0)
         {
-            flag = true;
+            f = true;
             break;
         }
     }
-    cout<<(!flag ? "NO" : "YES");
+
+    cout<<(!f ? "NO" : "YES")<<'\n';
 }

@@ -1,16 +1,16 @@
-
 #include<iostream>
 using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
-
-    while(test--)
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin>>t;
+    while(t--)
     {
-        int a;
-        cin>>a;
-        cout<<a-1<<endl;
+        int x;
+        cin>>x;
+        cout<<x-1<<'\n';
     }
 }

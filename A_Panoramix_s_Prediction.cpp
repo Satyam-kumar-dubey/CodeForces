@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -6,14 +5,17 @@ using namespace std;
 
 int main()
 {
-    int first, second;
-    cin>>first>>second;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    vector<int>arr = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47};
-    int index = lower_bound(arr.begin(), arr.end(), first) - arr.begin();
+    int x,y;
+    cin>>x>>y;
 
-    if(index+1 < arr.size() && arr[index+1] == second)
-    cout<<"YES";
+    vector<int>v ={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47};
+    
+    int p=lower_bound(v.begin(), v.end(), x) - v.begin();
+    if(p+1 < v.size() && v[p+1] == y)
+    cout<<"YES"<<"\n";
     else
-    cout<<"NO";
+    cout<<"NO"<<"\n";
 }

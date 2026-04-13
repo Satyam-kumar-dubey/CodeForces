@@ -1,37 +1,33 @@
-
 #include<iostream>
 #include<string>
-
 using namespace std;
 
-long long remove(long long num)
+int slv(int n)
 {
-    string s = to_string(num);
-    string res = "";
-    for(int i=0; i<s.size(); i++)
+    string s=to_string(n);
+    string t = "";
+    for (char c:s)
     {
-        if(s[i] != '0')
-        res += s[i];
+        if (c!='0')
+        t+=c;
     }
-    long long val = stoll(res);
-    return val;
+    return stoi(t);
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    int a,b;
+    cin>>a>>b;
 
-    long long num1,num2;
-    cin>>num1>>num2;
+    int c=a+b;
+    int p = slv(a);
+    int q = slv(b);
+    int r = slv(c);
 
-    long long sum = num1 + num2;
-
-    long long newNum1 = remove(num1);
-    long long newNum2 = remove(num2);
-    long long SumAfterZero = remove(sum);
-
-    long long newSum = newNum1 + newNum2;
-
-    cout<<(newSum == SumAfterZero ? "YES" : "NO");
+    if (p+q==r)
+    cout<<"YES";
+    else
+    cout<<"NO";
 }

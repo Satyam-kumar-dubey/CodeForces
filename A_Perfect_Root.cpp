@@ -1,19 +1,18 @@
-
 #include<iostream>
 using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
-
-    while(test--)
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin>>t;
+    while(t--)
     {
-        int num;
-        cin>>num;
-
-        for(int i=1; i<=num; i++)
+        int n;
+        cin>>n;
+        for(int i=1; i<=n; i++)
         cout<<i<<" ";
-        cout<<endl;
+        cout<<"\n";
     }
 }

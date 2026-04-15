@@ -1,26 +1,26 @@
-
 #include<iostream>
 #include<vector>
 using namespace std;
 
 int main ()
 {
-    int bags;
-    cin>>bags;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int s;
+    cin>>s;
     
-    vector<int>arr(bags);
-    for(int i=0; i<bags; i++)
-    cin>>arr[i];
+    vector<int>v(s);
 
-    int totalSum = 0, even = 0, odd = 0;
-    for(int val : arr)
+    for(int i=0; i<s; i++)
+    cin>>v[i];
+    int t=0,e=0,o=0;
+    for(int i : v)
     {
-        totalSum += val;
-        if(val % 2 == 0)
-        even++;
+        t += i;
+        if(i%2==0)
+        e++;
         else
-        odd++;
+        o++;
     }
-
-    cout<<(totalSum % 2 == 0 ? even : odd);
+    cout<<(t%2==0 ? e : o)<<'\n';
 }

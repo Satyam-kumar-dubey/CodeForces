@@ -1,28 +1,28 @@
-
 #include<iostream>
 #include<vector>
 #include<cmath>
 using namespace std;
 
-int main ()
+int main()
 {
-    int no;
-    cin>>no;
+    int n;
+    cin>>n;
 
-    vector<int>soldiers(no);
-    for(int i=0; i<no; i++)
-    cin>>soldiers[i];
+    vector<int>v(n);
+    for(int i=0; i<n; i++)
+    cin>>v[i];
 
-    int firstIndex = -1, secondIndex = -1, mini = INT_MAX;
-    for(int i=0; i<no; i++)
+    int d = abs(v[0] - v[n - 1]);
+    int x=n, y=1;   
+    for (int i=0; i<n - 1; i++)
     {
-        int diff = abs(soldiers[i] - (soldiers[(i+1) % no]));
-        if(diff < mini)
+        int t = abs(v[i] - v[i + 1]);
+        if (t < d)
         {
-            mini = diff;
-            firstIndex = i;
-            secondIndex = ((i+1) % no);
+            d = t;
+            x = i+1;  
+            y = i+2;
         }
     }
-    cout<<firstIndex+1<<" "<<secondIndex+1<<'\n';
+    cout<<x<<" "<<y<<'\n';
 }

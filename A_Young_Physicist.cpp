@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -8,18 +7,16 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
-
-    int Xsum = 0, Ysum = 0, Zsum = 0;
-    while(test--)
+    int t;
+    cin>>t;
+    int s1 = 0, s2 = 0, s3 = 0;
+    while(t--)
     {
-        int x,y,z;
-        cin>>x>>y>>z;
-        Xsum += x;
-        Ysum += y;
-        Zsum += z;
+        int a,b,c;
+        cin>>a>>b>>c;
+        s1 += a;
+        s2 += b;
+        s3 += c;
     }
-
-    cout<<((Xsum==0 && Ysum == 0 && Zsum == 0) ? "YES" : "NO");
+    cout<<((s1==0 && s2==0 && s3==0) ? "YES" : "NO");
 }

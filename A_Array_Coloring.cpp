@@ -12,25 +12,19 @@ int main()
 
     while(t--)
     {
-        int n;
-        cin>>n;
+        int x;
+        cin>>x;
 
-        vector<int>v(n + 1);
-        for (int i=1; i<=n; i++)
+        int s=0;
+        for (int i = 0; i < x; i++)
         {
             int x;
             cin>>x;
-            v[x]=i;
+            s+=x;
         }
-        bool f=true;
-        for (int x=1; x<n; x++)
-        {
-            if((v[x] % 2)==(v[x + 1]%2))
-            {
-                f=false;
-                break;
-            }
-        }
-        cout<<(f ? "YES" : "NO")<<"\n";
+        if(s % 2==0)
+        cout<<"YES"<<"\n";
+        else
+        cout<<"NO"<<"\n";
     }
 }

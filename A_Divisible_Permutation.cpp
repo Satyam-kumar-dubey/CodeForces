@@ -1,46 +1,35 @@
-#include <iostream>
+#include<iostream>
 #include<vector>
 using namespace std;
 
-int main() {
-
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
-    while (test--) {
+    int t;
+    cin>>t;
 
-        int size;
-        cin>>size;
+    while (t--)
+    {
+        int n;
+        cin>>n;
+        vector<int>v(n);
+        int l = 1, r = n;
+        bool f=true;
 
-        vector<int> arr(size);
-        vector<bool> used(size+1, false);
-
-        arr[size - 1] = 1;
-        used[1] = true;
-
-        for (int i = size - 1; i >= 1; --i) 
-        {
-            int target = arr[i] % i;
-            int taken = -1;
-
-            for (int x = 1; x <= size; ++x) 
-            {
-                if (!used[x] && (x % i) == target) 
-                {
-                    taken = x;
-                    break;
-                }
+        for (int i = n - 1; i >= 0; i--) {
+            if (f) {
+                v[i] = r;
+                r--;
+            } else {
+                v[i] = l;
+                l++;
             }
-
-            arr[i - 1] = taken;
-            used[taken] = true;
+            f = !f;
         }
-
-        for (int i = 0; i < size; ++i)
-        {
-            cout<<arr[i]<<(i + 1 == size ? '\n' : ' ');
-        }
+        for (int x : v)
+        cout<<x<<" ";
+        cout<<"\n";
     }
 }

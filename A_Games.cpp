@@ -1,26 +1,26 @@
-
 #include<iostream>
 #include<vector>
 using namespace std;
 
 int main ()
 {
-    int size;
-    cin>>size;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin>>t;
     
-    vector<int>home(size),guest(size);
-    for(int i=0; i<size; i++)
-    cin>>home[i]>>guest[i];
+    vector<int>h(t),g(t);
+    for(int i=0; i<t; i++)
+    cin>>h[i]>>g[i];
 
-    int count = 0;
-    for(int i=0; i<size; i++)
+    int c=0;
+    for(int i=0; i<t; i++)
     {
-        for(int j=0; j<size; j++)
+        for(int j=0; j<t; j++)
         {
-            if(i != j && home[i] == guest[j])
-            count++;
+            if(i!=j && h[i]==g[j])
+            c++;
         }
     }
-    cout<<count<<'\n';
-   
+    cout<<c<<"\n";
 }

@@ -1,39 +1,36 @@
-
 #include<iostream>
 #include<vector>
 #include<string>
 using namespace std;
 
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        int size,toDelete;
-        cin>>size>>toDelete;
+        int n, k;
         string s;
-        cin>>s;
+        cin>>n>>k>>s;
 
-        vector<int>temp(26,0);
-        for(int i=0; i<size; i++)
+        vector<int>v(26, 0);
+        for(char c : s) 
+        v[c - 'a']++;
+
+        int t = 0;
+        for (int x : v)
         {
-            temp[s[i]-'a']++;
+            if(x % 2)
+            t++;
         }
-        
-        int count = 0;
-        for(int val : temp)
-        {
-            if(val % 2 != 0)
-            count++;
-        }
-        
-        cout<<(count <= toDelete + 1 ? "YES" : "NO");
-        cout<<'\n';
-        
+
+        if (k >= t - 1)
+        cout << "YES\n";
+        else
+        cout << "NO\n";
     }
 }

@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -6,20 +5,21 @@ using namespace std;
 
 int main ()
 {
-    int noOfStudent, minimumTimes;
-    cin>>noOfStudent>>minimumTimes;
-
-    vector<int>arr(noOfStudent);
-    for(int i=0; i<noOfStudent; i++)
-    cin>>arr[i];
-
-    sort(arr.begin(),arr.end());
-    int count = 0;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     
-    for(int val : arr)
+    int s,t;
+    cin>>s>>t;
+    vector<int>v(s);
+    for(int i=0; i<s; i++)
+    cin>>v[i];
+
+    sort(v.begin(),v.end());
+    int c = 0;
+    for(int val : v)
     {
-        if(val + minimumTimes <= 5)
-        count++;
+        if(val + t <= 5)
+        c++;
     }
-    cout<<(count/3)<<'\n';
+    cout<<(c/3)<<"\n";
 }

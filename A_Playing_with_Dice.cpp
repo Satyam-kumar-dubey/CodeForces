@@ -1,22 +1,24 @@
-
 #include<iostream>
 #include<cmath>
 using namespace std;
 
 int main()
 {
-    int first,second;
-    cin>>first>>second;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int a,b;
+    cin>>a>>b;
 
-    int left = 0, draw = 0, right = 0;
+    int x=0,y=0,z=0;
+
     for(int i=1; i<=6; i++)
     {
-        if(abs(i-first) < abs(i-second))
-        left++;
-        else if(abs(i-first) == abs(i-second))
-        draw++;
+        if(abs(i-a)<abs(i-b))
+        x++;
+        else if(abs(i-a)==abs(i-b))
+        y++;
         else
-        right++;
+        z++;
     }
-    cout<<left<<" "<<draw<<" "<<right<<'\n';
+    cout<<x<<" "<<y<<" "<<z<<"\n";
 }

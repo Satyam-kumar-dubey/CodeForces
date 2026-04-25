@@ -1,17 +1,18 @@
-
 #include<iostream>
-#include<algorithm>
 #include<cmath>
+#include<algorithm>
 using namespace std;
 
 int main ()
 {
-    int n, m;
-    cin>>n>>m;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int a,b;
+    cin>>a>>b;
 
-    int mini = min(n,m);
-    if(mini % 2 == 1)
-    cout<<"Akshat"<<'\n';
+    int t = min(a,b);
+    if(t%2==1)
+    cout<<"Akshat"<<"\n";
     else
-    cout<<"Malvika"<<'\n';
+    cout<<"Malvika"<<"\n";
 }

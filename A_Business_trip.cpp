@@ -1,32 +1,33 @@
-
 #include<iostream>
-#include<vector>
 #include<algorithm>
+#include<vector>
 using namespace std;
 
 int main ()
 {
-    int n;
-    cin>>n;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    vector<int>month(12);
+    int t;
+    cin>>t;
+    vector<int>v(12);
+
     for(int i=0; i<12; i++)
-    cin>>month[i];
+    cin>>v[i];
+    sort(v.begin(),v.end());
 
-    sort(month.begin(),month.end());
-
-    if(n==0)
-    cout<<0<<'\n';
+    if(t==0)
+    cout<<0<<"\n";
     else
     {
-        int sum = 0,count = 0;
-        for(int i=month.size()-1; i>=0; i--)
+        int s=0,c=0;
+        for(int i=v.size()-1; i>=0; i--)
         {
-            sum += month[i];
-            count++;
-            if(sum >= n)
+            s += v[i];
+            c++;
+            if(s >= t)
             break;
         }
-        cout<<(sum < n ? -1 : count)<<'\n';
+        cout<<(s < t ? -1 : c)<<"\n";
     }
 }

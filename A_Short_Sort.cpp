@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<string>
 using namespace std;
@@ -7,19 +6,17 @@ int main ()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    int t;
+    cin>>t;
 
-    int test;
-    cin>>test;
-
-    while(test--)
+    while(t--)
     {
-
         string s;
         cin>>s;
 
         if(s == "bca" || s == "cab")
-        cout<<"NO"<<'\n';
+        cout<<"NO"<<"\n";
         else
-        cout<<"YES"<<'\n';
+        cout<<"YES"<<"\n";
     }
 }

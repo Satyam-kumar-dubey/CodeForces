@@ -1,17 +1,32 @@
-
 #include<iostream>
-#include<string>
+#include<map>
 using namespace std;
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    int n;
+    cin>>n;
 
+    map<string, int> m;
     string s;
-    cin>>s;
 
-    if(s.find("0000000") != string::npos || s.find("1111111") != string::npos)
-    cout<<"YES";
-    else
-    cout<<"NO";
+    for (int i = 0; i < n; i++)
+    {
+        cin>>s;
+        m[s]++;
+    }
+
+    string a;
+    int t=0;
+    for (auto it : m)
+    {
+        if (it.second > t)
+        {
+            t = it.second;
+            a = it.first;
+        }
+    }
+    cout<<a<<"\n";
 }

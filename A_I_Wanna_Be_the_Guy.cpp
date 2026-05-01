@@ -1,42 +1,42 @@
-
 #include<iostream>
-#include<vector>
 #include<unordered_map>
+#include<vector>
+
 using namespace std;
 
 int main ()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     int n;
     cin>>n;
+    unordered_map<int,int>a;
 
-    int fsize;
-    cin>>fsize;
-    vector<int>first(fsize);
-    for(int i=0; i<fsize; i++)
-    cin>>first[i];
+    int s;
+    cin>>s;
+    vector<int>v(s);
+    for(int i=0; i<s; i++)
+    cin>>v[i];
 
-    int secsize;
-    cin>>secsize;
-    vector<int>second(secsize);
-    for(int i=0; i<secsize; i++)
-    cin>>second[i];
+    int t;
+    cin>>t;
+    vector<int>v2(t);
+    for(int i=0; i<t; i++)
+    cin>>v2[i];
 
-    unordered_map<int,int>m;
+    for(int it : v)
+    a[it]++;
+    for(int it: v2)
+    a[it]++;
 
-    for(int val : first)
-    m[val]++;
-
-    for(int val: second)
-    m[val]++;
-
-    bool flag = false;
+    bool f=false;
     for(int i=1; i<=n; i++)
     {
-        if(!m.count(i))
+        if(!a.count(i))
         {
-            flag = true;
+            f = true;
             break;
         }
     }
-    cout<<(!flag ? "I become the guy." : "Oh, my keyboard!")<<'\n';
+    cout<<(!f ? "I become the guy." : "Oh, my keyboard!")<<'\n';
 }

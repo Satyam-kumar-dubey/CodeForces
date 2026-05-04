@@ -1,6 +1,6 @@
-
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 int main ()
@@ -13,27 +13,32 @@ int main ()
 
     while(t--)
     {
-        int n, o = 0;
+        int n;
         cin>>n;
-        long long s = 0, sm = LLONG_MAX;
 
-        vector<long long>v(n);
+        long long s = 0;
+        vector<long long>o;
+
         for(int i=0; i<n; i++)
         {
-            cin>>v[i];
-            s += v[i];
+            long long x;
+            cin>>x;
 
-            if(v[i] % 2 != 0)
-            {
-                o++;
-                sm = min(sm,v[i]);
-            }
+            if(x % 2 != 0)
+            o.push_back(x);
+            else
+            s += x;
         }
-        if( o == 0)
-        cout<<0<<"\n";
-        else if ( o == 1)
+        if( o.size() == 0 )
+        {
+            cout<<0<<"\n";
+            continue;
+        }
+        sort(o.begin(),o.end());
+        int t = o.size();
+
+        for(int i=t/2; i<t; i++)
+        s += o[i];
         cout<<s<<"\n";
-        else 
-        cout<<(s - sm)<<"\n";
     }
 }

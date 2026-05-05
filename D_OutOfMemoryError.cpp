@@ -17,47 +17,37 @@ int main ()
         long long h;
         cin>>n>>m>>h;
 
-        vector<int>v(n),og(n);
+        vector<long long>v(n),og(n);
         for(int i=0; i<n; i++)
-        cin>>v[i];
-
-        og = v;
+        {
+            cin>>v[i];
+            og[i] = v[i];
+        }
 
         vector<pair<int,long long>>op(m);
         for(int i=0; i<m; i++)
         cin>>op[i].first>>op[i].second;
 
+        int l = -1;
         for(int i=0; i<m; i++)
         {
-            int pos = op[i].first;
-            long long val = op[i].second;
+            int pos = op[i].first-1;
+            int val = op[i].second;
+            og[pos] += val;
 
-            v[pos-1] += val;
-            if(v[pos-1] > h)
-            v = og;
+            if(og[pos] > h)
+            l = i;
+        }
+
+        for(int i=l+1; i<m; i++)
+        {
+            int pos = op[i].first-1;
+            int val = op[i].second;
+            v[pos] += val;
         }
         for(int i=0; i<n; i++)
         cout<<v[i]<<" ";
+
         cout<<"\n";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

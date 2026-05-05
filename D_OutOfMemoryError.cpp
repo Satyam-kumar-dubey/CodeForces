@@ -5,36 +5,59 @@ using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+..
+    while(t--)
     {
-        int size,operations;
-        long long limit;
-        cin>>size>>operations>>limit;
+        int n,m;
+        long long h;
+        cin>>n>>m>>h;
 
-        vector<int>arr(size);
-        for(int i=0; i<size; i++)
-        cin>>arr[i];
+        vector<int>v(n),og(n);
+        for(int i=0; i<n; i++)
+        cin>>v[i];
 
-        vector<int>ans(size);
-        for(int i=0; i<size; i++)
-        ans[i] = arr[i];
+        og = v;
 
-        while(operations--)
+        vector<pair<int,long long>>op(m);
+        for(int i=0; i<m; i++)
+        cin>>op[i].first>>op[i].second;
+
+        for(int i=0; i<m; i++)
         {
-            int pos;
-            long long value;
-            cin>>pos>>value;
+            int pos = op[i].first;
+            long long val = op[i].second;
 
-            ans[pos-1] += value;
-            if(ans[pos-1] > limit)
-            ans = arr;
+            v[pos-1] += val;
+            if(v[pos-1] > h)
+            v = og;
         }
-        for(int i=0; i<size; i++)
-        cout<<ans[i]<<" ";
-
-        cout<<endl;
+        for(int i=0; i<n; i++)
+        cout<<v[i]<<" ";
+        cout<<"\n";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

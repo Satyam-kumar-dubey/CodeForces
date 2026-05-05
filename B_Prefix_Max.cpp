@@ -4,32 +4,24 @@
 #include<algorithm>
 using namespace std;
 
-int main()
+int main ()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+
+    while(t--)
     {
-        int size;
-        cin>>size;
+        int n; 
+        cin>>n;
 
-        vector<int>arr(size);
-        for(int i=0; i<size; i++)
-        cin>>arr[i];
+        vector<int>v(n);
+        for(int i=0; i<n; i++)
+        cin>>v[i];
 
-        int maxi = INT_MIN, maxIndex = 0;
-        for(int i=0; i<size; i++)
-        {
-            if(arr[i] > maxi)
-            {
-                maxi = arr[i];
-                maxIndex = i;
-            }
-        }
-        if(maxIndex != 0)
-        swap(arr[0],arr[maxIndex]);
-        
-        cout<<(arr[0]*size)<<endl;
+        int mx = *max_element(v.begin(), v.end());
+        cout<<(mx * v.size())<<"\n";
     }
 }

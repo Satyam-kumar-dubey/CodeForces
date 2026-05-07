@@ -31,7 +31,7 @@ int main ()
         {
             auto[l, r, real] = v[i];
             if(k >= l && k <= r)
-            k = real;
+            k = max(k,real);
         }
         cout<<k<<"\n";
     }

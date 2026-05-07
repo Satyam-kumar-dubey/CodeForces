@@ -27,6 +27,8 @@ int main ()
                 else 
                 v[i] = 3;
             }
+            if( n % 2 == 0)
+            v[n-1] = 2;
             for(int x : v)
             cout<<x<<" ";
             cout<<'\n';

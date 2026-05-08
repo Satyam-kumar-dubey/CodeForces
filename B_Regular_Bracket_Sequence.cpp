@@ -1,6 +1,5 @@
 
-#include <iostream>
-#include<string>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -9,21 +8,25 @@ int main() {
     cin.tie(nullptr);
 
     string s;
-    cin >> s;
+    cin>>s;
 
     int open = 0;
     int pairs = 0;
 
-    for (char c : s) {
-        if (c == '(') {
+    for (char c : s)
+    {
+        if (c == '(')
+        {
             open++;
-        } else {
-            if (open > 0) {
+        }
+        else
+        {
+            if (open > 0)
+            {
                 open--;
                 pairs++;
             }
         }
     }
-
-    cout << pairs * 2 << "\n";
+    cout<<pairs*2<< "\n";
 }

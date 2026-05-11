@@ -1,6 +1,5 @@
 
-#include<iostream>
-#include<string>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -8,23 +7,36 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        int size;
-        cin>>size;
+        int n;
         string s;
-        cin>>s;
+        cin>>n>>s;
 
         int it1 = 0, it2 = s.size()-1;
-        while(it1 < it2 && s[it1] != s[it2])
+        bool f = false;
+        while(it1 <= it2)
         {
-            it1++;
-            it2--;
+            if((s[it1] == '0' && s[it2] == '1') || s[it1] == '1' && s[it2] == '0')
+            {
+                it1++;
+                it2--;
+            }
+            else
+            {
+                int l=0;
+                for(int i=it1; i<=it2; i++)
+                l++;
+
+                f = true;
+                cout<<l<<'\n';
+                break;
+            }
         }
-        int ans = it2 - it1 +1;
-        cout<<(ans < 0 ? 0 : ans)<<'\n';
+        if(!f)
+        cout<<0<<'\n';
     }
 }

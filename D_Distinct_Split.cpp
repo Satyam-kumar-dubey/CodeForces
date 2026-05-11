@@ -2,19 +2,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int>v(26,0);
-int slv (string s)
-{
-    int d = 0;
-    for(char c: s)
-    {
-        if(v[c-'a'] == 0)
-        d++;
-        v[c-'a']++;
-    }
-    fill(v.begin(),v.end(),0);
-    return d;
-}
 int main ()
 {
     ios::sync_with_stdio(false);
@@ -25,15 +12,40 @@ int main ()
 
     while(t--)
     {
-        int n , a = 0;
+        int n;
         string s;
         cin>>n>>s;
 
-        for(int i=0; i<s.size(); i++)
+        vector<int>v(26,0);
+        vector<int>suf(n), pre(n);
+
+        int d = 0;
+        for(int i=0; i<n; i++)
         {
-            int l = slv(s.substr(0,i)) + slv(s.substr(i));
-            a = max(a,l);
+            char c = s[i];
+            if(v[c-'a'] == 0)
+            d++;
+
+            v[c-'a']++;
+            pre[i] = d;
         }
+        fill(v.begin(),v.end(),0);
+
+        d = 0;
+        for(int i=n-1; i>=0; i--)
+        {
+            char c = s[i];
+            if(v[c-'a'] == 0)
+            d++;
+
+            v[c-'a']++;
+            suf[i] = d;
+        }
+
+        int a = 0;
+        for(int i=0; i<n-1; i++)
+        a = max(a, (pre[i]+suf[i+1]));
+
         cout<<a<<'\n';
     }
 }

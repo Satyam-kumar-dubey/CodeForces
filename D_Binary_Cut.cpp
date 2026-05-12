@@ -15,12 +15,15 @@ int main ()
         string s;
         cin>>s;
 
-        int ct = 0, it = 0;
+        int ct = 1;
         for(int i=0; i<s.size()-1; i++)
         {
-            if(s[i] > s[i+1])
+            if(s[i] != s[i+1])
             ct++;
         }
-        cout<<ct+1<<'\n';
+        if(s.find("01") != string::npos)
+        ct--;
+
+        cout<<ct<<'\n';
     }
 }

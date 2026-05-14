@@ -17,9 +17,10 @@ int main ()
         string s;
         cin>>s;
 
-        if(s == "Timur" || s == "miurT" || s == "Trumi" || s == "mriTu")
-        cout<<"YES"<<'\n';
-        else
-        cout<<"NO"<<'\n';
+        string o = "Timur";
+        sort(s.begin(),s.end());
+        sort(o.begin(),o.end());
+        
+        cout<<( s == o ? "YES" : "NO")<<'\n';
     }
 }

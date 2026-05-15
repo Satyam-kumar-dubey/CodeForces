@@ -1,30 +1,49 @@
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+using ll = long long;
 
 int main ()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin>>t;
+
+    while(t--)
     {
-        int size, k;
-        cin>>size>>k;
+        int n,k;
+        cin>>n>>k;
 
-        vector<long long>v(size);
-        long long prod = 1;
-        for(int i=0; i<size; i++)
+        vector<ll>v(n);
+        
+        ll e = 0;
+        for(int i=0; i<n; i++)
         {
             cin>>v[i];
-            prod *= v[i];
+            if(v[i] % 2 == 0)
+            e++;
         }
         
-        if(prod % k == 0)
-        cout<<0<<'\n';
-        else
-        {}
+        ll a = INT_MAX;
+        for(ll i : v)
+        {
+            if(i % k ==0)
+            a = 0;
 
-        
+            a = min(a, k - (i%k));
+        }
+        if(k == 4)
+        {
+            if(e >= 2)
+            a = min(a,0LL);
+            else if(e == 1)
+            a = min(a,1LL);
+            else
+            a = min(a,2LL);
+        }
+        cout<<a<<'\n';
     }
 }

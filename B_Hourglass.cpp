@@ -1,31 +1,32 @@
 
-#include<iostream>
+
+#include<bits/stdc++.h>
 using namespace std;
 
-int solve(int s, int k, int m)
-{
-    int last = (m / k) * k;
-    int flips = last / k;
-    int remainingTime = m - last;
-
-    int st;
-    if (k >= s)
-    st = s;
-    else
-    st = (flips % 2 == 0) ? s : k;
-
-    int temp = st - remainingTime;
-    return (temp < 0) ? 0 : temp;
-}
+using ll = long long;
 
 int main ()
 {
-    int test;
-    cin>>test;
-    while (test--)
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    int t;
+    cin>>t;
+
+    while(t--)
     {
-        int a, b, c;
-        cin>>a>>b>>c;
-        cout<<solve(a, b, c)<<endl;
+        ll s,k,m;
+        cin>>s>>k>>m;
+
+        ll rst = m/k;
+        ll rm = m%k;
+
+        ll a;
+        if(rst % 2 == 1 && k < s)
+        a = k;
+        else
+        a = s;
+
+        cout<<max(0LL,a-rm)<<'\n';
     }
 }

@@ -1,5 +1,5 @@
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -9,21 +9,20 @@ int main ()
 
     int n;
     cin>>n;
-
     while(n--)
     {
         int a,b,c,d;
         cin>>a>>b>>c>>d;
 
-        int count = 0;
+        int cnt = 0;
 
         if(b > a)
-        count++;
+        cnt++;
         if(c > a)
-        count++;
+        cnt++;
         if(d > a)
-        count++;
+        cnt++;
 
-        cout<<count<<'\n';
+        cout<<cnt<<'\n';
     }
 }

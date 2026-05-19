@@ -1,5 +1,5 @@
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -7,19 +7,19 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
         int n;
         cin>>n;
-        int sum = 0;
+        int s = 0;
         while(n != 0)
         {
-            sum += n % 10;
+            s += n % 10;
             n /= 10;
         }
-        cout<<sum<<'\n';
+        cout<<s<<'\n';
     }
 }

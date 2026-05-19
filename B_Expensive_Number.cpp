@@ -14,9 +14,8 @@ int main ()
 
     while(t--)
     {
-        ll n;
-        cin>>n;
-        string s = to_string(n);
+        string s;
+        cin>>s;
 
         int c = 0, in = -1;
 

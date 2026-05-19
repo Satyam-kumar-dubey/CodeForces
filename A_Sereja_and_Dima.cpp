@@ -1,6 +1,6 @@
 
-#include<iostream>
-#include<vector>
+
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -9,26 +9,28 @@ int main ()
     cin.tie(nullptr);
 
     int s;
-    cin >> s;
+    cin>>s;
 
-    vector<int> v(s);
+    vector<int>v(s);
     for(int i = 0; i < s; i++)
-        cin >> v[i];
+    cin >> v[i];
 
-    int first = 0, second = 0, it1 = 0, it2 = s - 1;
-    bool turn = true; 
+    int f = 0, sc = 0, it1 = 0, it2 = s - 1;
+    bool trn = true; 
 
     while(it1 <= it2)
     {
-        int take;
-        if(v[it1] > v[it2]) take = v[it1++];
-        else take = v[it2--];
+        int tk;
+        if(v[it1] > v[it2]) tk = v[it1++];
+        else tk = v[it2--];
 
-        if(turn) first += take;
-        else second += take;
+        if(trn)
+        f += tk;
+        else
+        sc += tk;
 
-        turn = !turn;
+        trn = !trn;
     }
 
-    cout << first << " " << second << '\n';
+    cout << f << " " << sc << '\n';
 }

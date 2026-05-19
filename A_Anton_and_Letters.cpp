@@ -1,7 +1,5 @@
 
-#include<iostream>
-#include<string>
-#include<set>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()

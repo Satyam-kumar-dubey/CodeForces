@@ -1,30 +1,29 @@
 
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
 {
-    int size;
-    cin>>size;
+    int s;
+    cin>>s;
 
-    vector<int>v(size);
-    for(int i=0; i<size; i++)
+    vector<int>v(s);
+    for(int i=0; i<s; i++)
     cin>>v[i];
 
-    int maxi = v[0], mini = v[0], ans = 0;
-    for(int i=1; i<size; i++)
+    int mx = v[0], mn = v[0], a = 0;
+    for(int i=1; i<s; i++)
     {
-        if(v[i] > maxi)
+        if(v[i] > mx)
         {
-            maxi = v[i];
-            ans++;
+            mx = v[i];
+            a++;
         }
-        else if(v[i] < mini)
+        else if(v[i] < mn)
         {
-            mini = v[i];
-            ans++;
+            mn = v[i];
+            a++;
         }
     }
-    cout<<ans<<'\n';
+    cout<<a<<'\n';
 }

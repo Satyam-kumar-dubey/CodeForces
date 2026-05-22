@@ -9,21 +9,21 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    vector<string>womanAndChild, man, rat;
+    vector<string>wc, man, rat;
     string captainName;
-    while(test--)
+    while(t--)
     {
-        string name, position;
-        cin>>name>>position;
+        string name, pos;
+        cin>>name>>pos;
 
-        if(position == "rat")
+        if(pos == "rat")
         rat.push_back(name);
-        else if(position == "child" || position == "woman")
-        womanAndChild.push_back(name);
-        else if(position == "man")
+        else if(pos == "child" || pos == "woman")
+        wc.push_back(name);
+        else if(pos == "man")
         man.push_back(name);
         else
         captainName = name;
@@ -31,7 +31,7 @@ int main ()
     for(string &s : rat)
     cout<<s<<'\n';
     
-    for(string &s : womanAndChild)
+    for(string &s : wc)
     cout<<s<<'\n';
 
     for(string &s : man)

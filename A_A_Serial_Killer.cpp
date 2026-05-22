@@ -1,6 +1,5 @@
 
-#include<iostream>
-#include<string>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -8,23 +7,23 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    string first, second;
-    cin>>first>>second;
+    string f, s;
+    cin>>f>>s;
     int n;
     cin>>n;
 
-    cout<<first<<" "<<second<<'\n';
+    cout<<f<<" "<<s<<'\n';
 
     while(n--)
     {
-        string murdered, replaced;
-        cin>>murdered>>replaced;
+        string m, r;
+        cin>>m>>r;
 
-        if(first == murdered)
-        first = replaced;
+        if(f == m)
+        f = r;
         else
-        second = replaced;
+        s = r;
 
-        cout<<first<<" "<<second<<'\n';
+        cout<<f<<" "<<s<<'\n';
     }
 }

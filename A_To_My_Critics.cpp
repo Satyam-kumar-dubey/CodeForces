@@ -1,5 +1,5 @@
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -7,10 +7,10 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
         int a,b,c;
         cin>>a>>b>>c;

@@ -1,42 +1,42 @@
-
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-int countBlocks(const string& s) {
-    int count = 1; 
-    for (int i = 1; i < s.length(); i++) {
-        if (s[i] != s[i - 1]) {
-            count++;  
-        }
-    }
-    return count;
-}
-
 int main() {
-    int tests;
-    cin >> tests;
-    cin.ignore(); 
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while (tests--) {
+    int t;
+    cin>>t;
+
+    while (t--)
+    {
         int n;
         cin >> n;
-        cin.ignore(); 
-        
         string s;
-        getline(cin, s);
+        cin >> s;
 
-        int maxBlocks = 0;
-
-        
-        for (int i = 0; i < n; i++) {
-            string rotated = s.substr(i) + s.substr(0, i);  
-            maxBlocks = max(maxBlocks, countBlocks(rotated)); 
+        if (n == 1)
+        {
+            cout << 1 << "\n";
+            continue;
         }
 
-        cout << maxBlocks << endl;
-    }
+        int d = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (s[i] != s[(i + 1) % n])
+            d++;
+        }
 
-    return 0;
+        bool f = false;
+        for (int i = 0; i < n; i++)
+        {
+            if (s[i] == s[(i + 1) % n])
+            {
+                f = true;
+                break;
+            }
+        }
+        cout << d + (f ? 1 : 0) << "\n";
+    }
 }

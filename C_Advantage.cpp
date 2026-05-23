@@ -14,34 +14,36 @@ int main ()
 
     while(t--)
     {
-        ll n;
-        cin>>n;
-        vector<ll>v(n);
+       int n;
+       cin>>n;
 
-        for(ll i=0; i<n; i++)
-        cin>>v[i];
+       vector<int>v(n);
+       priority_queue<int>pq;
 
-        ll b = *max_element(v.begin(),v.end());
-        ll sb = -1;
-        for(ll i=0; i<n; i++)
-        {
-            if(v[i] != b)
-            sb = max(sb,v[i]);
-        }
+       for(int i=0; i<n; i++)
+       {
+            cin>>v[i];
+            pq.push(v[i]);
+       }
 
-        for(ll i=0; i<n; i++)
-        {
-            if(v[i] == b)
+       vector<int>a;
+       for(int i=0; i<n; i++)
+       {
+            if(v[i] == pq.top())
             {
-                if(sb == -1)
-                cout<<0<<" ";
-                else
-                cout<<v[i]-sb<<" ";
+                int tmp = pq.top();
+                pq.pop();
+                a.push_back(v[i] - pq.top());
+                pq.push(tmp);
             }
-            else 
-            cout<<v[i] - b<<" ";
-        }
-        cout<<"\n";
+            else
+            a.push_back(v[i] - pq.top());
+       }
+
+       for(int x : a)
+       cout<<x<<" ";
+
+       cout<<'\n';
     }
     
 }

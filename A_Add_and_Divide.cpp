@@ -1,6 +1,8 @@
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+using ll = long long;
 
 int main ()
 {
@@ -8,31 +10,31 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        long long a,b;
+        ll a,b;
         cin>>a>>b;
 
-        long long ans = (long long)4e18;
+        ll ans = (ll)4e18;
 
         for(int i=0; i<=40; i++)
         {
-            long long temp = b+i;
-            long long ops = 0;
-            long long val = a;
+            ll tmp = b+i;
+            ll ops = 0;
+            ll val = a;
 
-            if(temp == 1)
+            if(tmp == 1)
             continue;
 
             while(val > 0)
             {
-                val /= temp;
+                val /= tmp;
                 ops++;
             }
-            ans = min(ans,(long long)ops+i);
+            ans = min(ans,(ll)ops+i);
         }
         cout<<ans<<'\n';
     }

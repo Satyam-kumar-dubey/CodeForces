@@ -1,18 +1,17 @@
 
-#include<iostream>
-#include<set>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
 {
-    int first,second,third,fourth;
-    cin>>first>>second>>third>>fourth;
+    int f,se,th,fr;
+    cin>>f>>se>>th>>fr;
 
     set<int>s;
-    s.insert(first);
-    s.insert(second);
-    s.insert(third);
-    s.insert(fourth);
+    s.insert(f);
+    s.insert(se);
+    s.insert(th);
+    s.insert(fr);
 
     cout<<(s.size() == 4 ? 0 : (4 - s.size()))<<'\n';
 }

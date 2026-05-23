@@ -1,6 +1,5 @@
 
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -9,23 +8,23 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        int size;
-        cin>>size;
-        vector<int>v(size);
+        int s;
+        cin>>s;
+        vector<int>v(s);
 
-        bool flag = false;
-        for(int i=0; i<size; i++)
+        bool f = false;
+        for(int i=0; i<s; i++)
         {
             cin>>v[i];
             if(v[i] == 67)
-            flag = true;
+            f = true;
         }
 
-        cout<<(!flag ? "NO" : "YES")<<'\n';
+        cout<<(!f ? "NO" : "YES")<<'\n';
     }
 }

@@ -5,27 +5,27 @@ using namespace std;
 
 int main ()
 {
-    int strength,level;
-    cin>>strength>>level;
+    int str,lvl;
+    cin>>str>>lvl;
 
-    vector<pair<int,int>>v(level);
+    vector<pair<int,int>>v(lvl);
 
-    for(int i=0; i<level; i++)
+    for(int i=0; i<lvl; i++)
     cin>>v[i].first>>v[i].second;
 
     sort(v.begin(),v.end());
     
-    bool flag = false;
-    for(int i=0; i<level; i++)
+    bool f = false;
+    for(int i=0; i<lvl; i++)
     {
-        if(strength > v[i].first)
-        strength += v[i].second;
+        if(str > v[i].first)
+        str += v[i].second;
         else
         {
-            flag = true;
+            f = true;
             break;
         }
     }
-    cout<<(!flag ? "YES" : "NO")<<'\n';
+    cout<<(!f ? "YES" : "NO")<<'\n';
     
 }

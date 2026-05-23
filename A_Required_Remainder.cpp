@@ -1,18 +1,21 @@
-#include <iostream>
+
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+using ll = long long;
+
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
     int t;
-    cin >> t;
+    cin>>t;
     while (t--) {
-        long long x, y, n;
+        ll x, y, n;
         cin >> x >> y >> n;
 
-        long long k = ((n - y) / x) * x + y;
+        ll k = ((n - y) / x) * x + y;
         cout << k << "\n";
     }
-    return 0;
 }

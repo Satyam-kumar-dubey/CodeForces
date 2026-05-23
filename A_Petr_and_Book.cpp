@@ -1,33 +1,31 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     int n;
     cin>>n;
 
     vector<int>v(7);
-    for(int i=0; i<7; i++)
+
+    for(int i = 0; i < 7; i++)
     cin>>v[i];
 
-    int s = 0;
+    int x = 0;
 
-    for(int i=0; i<7; i++)
+    while(n > 0)
     {
-        
-        n -= v[i%7];
-        if(v[i%7] != 0)
-        s++;
+        n -= v[x];
 
         if(n <= 0)
-        break;
+        {
+            cout<<x + 1<<'\n';
+            break;
+        }
+
+        x = (x + 1) % 7;
     }
-    cout<<s<<'\n';
-    
 }

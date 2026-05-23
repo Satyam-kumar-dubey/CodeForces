@@ -1,8 +1,5 @@
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<climits>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
@@ -10,29 +7,29 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        int size;
-        cin>>size;
+        int s;
+        cin>>s;
 
-        vector<int>arr(size);
-        for(int i=0; i<size; i++)
-        cin>>arr[i];
+        vector<int>v(s);
+        for(int i=0; i<s; i++)
+        cin>>v[i];
 
-        int ans = arr[size-1] - arr[0];
+        int a = v[s-1] - v[0];
 
-        for(int i=1; i<size; i++)
-        ans = max(ans, (arr[i] - arr[0]));
+        for(int i=1; i<s; i++)
+        a = max(a, (v[i] - v[0]));
 
-        for(int i=0; i<size-1; i++)
-        ans = max(ans,(arr[size-1]-arr[i]));
+        for(int i=0; i<s-1; i++)
+        a = max(a,(v[s-1]-v[i]));
 
-        for(int i=0; i<size-1; i++)
-        ans = max(ans,(arr[i]-arr[i+1]));
+        for(int i=0; i<s-1; i++)
+        a = max(a,(v[i]-v[i+1]));
 
-        cout<<ans<<'\n';
+        cout<<a<<'\n';
     }
 }

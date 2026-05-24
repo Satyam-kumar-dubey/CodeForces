@@ -9,21 +9,17 @@ int main ()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    
-
-    
-    
         ll n;
         cin>>n;
 
         vector<ll>v(n);
-        map<ll,ll>m;
+        unordered_map<ll,ll>m;
         ll sm = 0;
 
         for(ll i=0; i<n; i++)
         {
             cin>>v[i];
-            m[v[i]] = i+1;
+            m[v[i]]++;
             sm += v[i];
         }
 
@@ -34,8 +30,12 @@ int main ()
             if(tp % 2 == 0)
             {
                 tp /= 2;
-                if(m.count(tp) && m[tp] != m[v[i]])
+                m[v[i]]--;
+
+                if(m[tp] > 0)
                 a.push_back(i+1);
+
+                m[v[i]]++;
             }
         }
         cout<<a.size()<<'\n';

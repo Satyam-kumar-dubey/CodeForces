@@ -1,20 +1,23 @@
 
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
 using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        int size;
-        cin>>size;
+        int s;
+        cin>>s;
 
-        vector<int>v(size);
-        for(int i=0; i<size; i++)
+        vector<int>v(s);
+        for(int i=0; i<s; i++)
         cin>>v[i];
 
         if(v.size() == 1)
@@ -23,20 +26,20 @@ int main ()
             continue;
         }
 
-        long long sum = 0, count = 0;
-        for(int val : v)
+        ll sm = 0, c = 0;
+        for(int x : v)
         {
-            sum += val;
-            if(val == 1)
-            count++;
+            sm += x;
+            if(x == 1)
+            c++;
         }
 
-        if(sum == v.size())
+        if(sm == v.size())
         {
             cout<<"NO"<<'\n';
             continue;
         }
-        else if(sum >= v.size()+count)
+        else if(sm >= v.size()+c)
         {
             cout<<"YES"<<'\n';
         }

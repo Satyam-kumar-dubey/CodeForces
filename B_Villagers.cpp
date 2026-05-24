@@ -1,32 +1,33 @@
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
+
+using ll = long long;
 
 int main ()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    
+    int t;
+    cin>>t;
 
-    int test;
-    cin>>test;
-
-    while(test--)
+    while(t--)
     {
-        int size;
-        cin>>size;
-        vector<int>arr(size);
+        int n;
+        cin>>n;
+        
+        vector<int>v(n);
+        for(int i=0; i<n; i++)
+        cin>>v[i];
 
-        for(int i=0; i<size; i++)
-        cin>>arr[i];
+        sort(v.rbegin(),v.rend());
 
-        sort(arr.rbegin(),arr.rend());
+        ll a = 0;
+        for(int i=0; i<n; i=i+2)
+        a += v[i];
 
-        long long ans = 0;
-        for(int i=0; i<size; i=i+2)
-        ans += arr[i];
-
-        cout<<ans<<'\n';
+        cout<<a<<'\n';
     }
+    
 }

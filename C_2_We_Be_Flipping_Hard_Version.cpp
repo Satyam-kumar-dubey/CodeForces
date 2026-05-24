@@ -2,8 +2,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -12,39 +10,44 @@ int main()
     int t;
     cin>>t;
 
-    while (t--) 
+    while(t--)
     {
         int n;
         cin>>n;
 
-        vector<ll>v(n + 1);
+        vector<long long> a(n + 1);
 
-        for(int i = 1; i <= n; i++)
-        cin >> v[i];
+        for (int i = 1; i <= n; i++)
+        cin >> a[i];
 
-        vector<int>a;
+        vector<int> ops;
 
-        int tmp = 0;
+        int flip = 0;
 
         for (int i = n; i >= 1; i--)
         {
 
-            ll cr = v[i];
-            if (tmp % 2)
-            cr = -cr;
+            long long cur = a[i];
 
-            if (cr < 0)
+            if (flip)
+            cur = -cur;
+
+            if (cur > 0)
             {
-                a.push_back(i);
-                tmp ^= 1;
+                ops.push_back(i);
+                flip ^= 1;
             }
         }
 
-        cout<<a.size()<<'\n';
+        reverse(ops.begin(), ops.end());
 
-        for (int x : a)
-        cout<<x<<' ';
+        cout<<ops.size()<<'\n';
 
-        cout<<'\n';
+        for (int x : ops)
+        cout << x << ' ';
+
+        cout << '\n';
     }
+
+    return 0;
 }

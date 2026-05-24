@@ -1,23 +1,26 @@
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+using ll = long long;
 
 int main ()
 {
-    long long test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        long long n,k,x;
+        ll n,k,x;
         cin>>n>>k>>x;
 
-        long long sum = k*(k+1)/2;
-        long long lastSum = (n-k)*(n-k+1)/2;
-        long long total = n*(n+1)/2;
+        ll s1 = k*(k+1)/2;
+        ll s2 = k*(2*n - k+1)/2;
 
-        long long reamin = total - lastSum;
-        cout<<((sum <= x && x <= reamin) ? "YES" : "NO");
-        cout<<'\n';
+        cout<<(x >= s1 &&  x <= s2 ? "YES" : "NO")<<"\n";
     }
+    
 }

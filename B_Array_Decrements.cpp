@@ -1,58 +1,58 @@
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
+
+using ll = long long;
 
 int main ()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
-        int size;
-        cin>>size;
+        int n;
+        cin>>n;
 
-        vector<long long>a(size);
-        vector<long long>b(size);
-        for(int i=0; i<size; i++)
+        vector<ll>a(n);
+        vector<ll>b(n);
+        for(int i=0; i<n; i++)
         cin>>a[i];
-        for(int i=0; i<size; i++)
+        for(int i=0; i<n; i++)
         cin>>b[i];
 
-        long long diff = 0;
-        for(int i=0; i<size; i++)
-        diff = max(diff, (a[i] - b[i]));
+        ll d = 0;
+        for(int i=0; i<n; i++)
+        d = max(d, (a[i] - b[i]));
 
-        bool flag = true;
-        for(int i=0; i<size; i++)
+        bool f = true;
+        for(int i=0; i<n; i++)
         {
             if(a[i] < b[i])
             {
-                flag = false;
+                f = false;
                 break;
             }
             if(b[i] > 0)
             {
-                if((a[i] - b[i]) != diff)
+                if((a[i] - b[i]) != d)
                 {
-                    flag = false;
+                    f = false;
                     break;
                 }
             }
             else
             {
-                if(a[i] > diff)
+                if(a[i] > d)
                 {
-                    flag = false;
+                    f = false;
                     break;
                 }
             }
         }
-        cout<<(flag ? "YES" : "NO")<<'\n';
+        cout<<(f ? "YES" : "NO")<<'\n';
     }
 }

@@ -16,11 +16,14 @@ int main ()
     {
         string s;
         cin>>s;
-
-        for(char &c : s)
-        c = tolower(c);
-
-        cout<<(s == "yes" ? "YES" : "NO")<<'\n';
+        
+        int y = 0;
+        for(char c : s)
+        {
+            if(c == 'Y')
+            y++;
+        }
+        cout<<(y <= 1 ? "YES" : "NO")<<'\n';
     }
     
 }

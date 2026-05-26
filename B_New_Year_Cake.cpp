@@ -1,47 +1,50 @@
-#include <iostream>
+
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
+using ll = long long;
+
+int main()
+{
     int n;
-    cin >> n;
+    cin>>n;
 
-    while (n--) {
-        long long a, b;
-        cin >> a >> b;
+    while(n--)
+    {
+        ll a, b;
+        cin>>a>>b;
 
-        int ans = 0;
+        int re = 0;
 
-        long long white1 = 0, dark1 = 0; 
-        long long white2 = 0, dark2 = 0; 
+        ll w1 = 0, d1 = 0; 
+        ll w2 = 0, d2 = 0; 
 
-        long long size = 1;
+        ll ly = 1;
 
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= 20; i++)
+        {
             
             if (i % 2 == 1)
-            white1 += size;
+            w1 += ly;
             else
-            dark1 += size;
+            d1 += ly;
 
 
             if (i % 2 == 1)
-            dark2 += size;
+            d2 += ly;
             else
-            white2 += size;
+            w2 += ly;
 
             
-            if ((white1 <= a && dark1 <= b) ||
-                (white2 <= a && dark2 <= b)) {
-                ans = i;
-            } else {
-                break;
-            }
+            if ((w1 <= a && d1 <= b) || (w2 <= a && d2 <= b))
+            re = i;
+            else
+            break;
 
-            size *= 2; 
+            ly *= 2; 
         }
 
-        cout << ans << endl;
+        cout << re << endl;
     }
 
-    return 0;
 }

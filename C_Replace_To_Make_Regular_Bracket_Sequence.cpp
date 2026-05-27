@@ -1,15 +1,10 @@
 
-#include <iostream>
-#include <stack>
-#include <string>
+#include<bits/stdc++.h>
 using namespace std;
 
-bool match(char open, char close) 
+bool match(char o, char c) 
 {
-    return (open == '(' && close == ')') ||
-           (open == '[' && close == ']') ||
-           (open == '{' && close == '}') ||
-           (open == '<' && close == '>');
+    return (o == '(' && c == ')') || (o == '[' && c == ']') || (o == '{' && c == '}') || (o == '<' && c == '>');
 }
 
 int main() 
@@ -18,7 +13,7 @@ int main()
     cin.tie(nullptr);
     
     string s;
-    cin >> s;
+    cin>>s;
 
     stack<char> st;
     int changes = 0;
@@ -26,9 +21,8 @@ int main()
     for (char c : s) 
     {
         if (c == '(' || c == '[' || c == '{' || c == '<') 
-        {
-            st.push(c);
-        } else 
+        st.push(c);
+        else 
         {
             if (st.empty()) 
             {
@@ -40,18 +34,12 @@ int main()
             st.pop();
 
             if (!match(open, c)) 
-            {
-                changes++;
-            }
+            changes++;
         }
     }
 
     if (!st.empty()) 
-    {
-        cout << "Impossible" << endl;
-    } else 
-    {
-        cout << changes << endl;
-    }
-
+    cout<<"Impossible"<<endl;
+    else 
+    cout<<changes<<endl;
 }

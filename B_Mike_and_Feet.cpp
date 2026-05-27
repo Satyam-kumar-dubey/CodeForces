@@ -1,73 +1,68 @@
 
-#include <iostream>
-#include <stack>
-#include <vector>
-#include <algorithm>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
+using ll = long long;
+
+int main ()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
     cin >> n;
-    
-    vector<int> arr(n);
-    for(int i = 0; i < n; i++) 
-    {
-        cin >> arr[i];
-    }
-    
-    vector<int> left(n), right(n);
-    stack<int> st;
 
-    for(int i = 0; i < n; i++) 
+    vector<int>v(n);
+    for(int i=0; i<n; i++)
+    cin >> v[i];
+
+    vector<int>a(n,0);
+    stack<int>s;
+
+    for(int i=0; i<n; i++)
     {
-        while(!st.empty() && arr[st.top()] >= arr[i]) 
+        while(!s.empty() && v[s.top()] >= v[i])
         {
-            st.pop();
+            int id = s.top();
+            s.pop();
+
+            if(s.empty())
+            {
+                int rn = i;
+                a[rn-1] = max(a[rn-1], v[id]);
+            }
+            else
+            {
+                int rn = i - s.top() - 1;
+                a[rn - 1] = max(a[rn - 1], v[id]);
+            }
         }
-        if(st.empty()) 
+
+        s.push(i);
+    }
+
+    while(!s.empty())
+    {
+        int id = s.top();
+        s.pop();
+
+        if(s.empty())
         {
-            left[i] = -1;
-        } else 
-        {
-            left[i] = st.top();
+            int rn = n;
+            a[rn - 1] = max(a[rn - 1], v[id]);
         }
-        st.push(i);
-    }
-
-    st = stack<int>();
-
-    for(int i = n - 1; i >= 0; i--) 
-    {
-        while(!st.empty() && arr[st.top()] >= arr[i]) 
+        else
         {
-            st.pop();
+            int rn = n - s.top() - 1;
+            a[rn - 1] = max(a[rn - 1], v[id]);
         }
-        if(st.empty()) 
-        {
-            right[i] = n;
-        } else 
-        {
-            right[i] = st.top();
-        }
-        st.push(i);
     }
 
-    vector<int> ans(n + 1, 0);
-    for(int i = 0; i < n; i++) 
-    {
-        int len = right[i] - left[i] - 1;
-        ans[len] = max(ans[len], arr[i]);
-    }
+    for(int i=n-2; i>=0; i--)
+    a[i] = max(a[i], a[i+1]);
 
-    for(int i = n - 1; i >= 1; i--) 
-    {
-        ans[i] = max(ans[i], ans[i + 1]);
-    }
+    for(int i=0; i<n; i++)
+    cout << a[i] << " ";
 
-    for(int i = 1; i <= n; i++) 
-    {
-        cout << ans[i] << " ";
-    }
-
-    return 0;
+    cout<<'\n';
 }

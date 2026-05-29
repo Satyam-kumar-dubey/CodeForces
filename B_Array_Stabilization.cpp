@@ -17,5 +17,7 @@ int main ()
     cin>>v[i];
     
     sort(v.begin(),v.end());
-    cout<<(v[n-2] - v[0])<<'\n';
+    int a1 = v[n-1] - v[1];
+    int a2 = v[n-2] - v[0];
+    cout<<min(a1,a2)<<'\n';
 }

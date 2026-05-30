@@ -1,14 +1,13 @@
 
-#include<iostream>
-#include<string>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main ()
 {
-    int test;
-    cin>>test;
+    int t;
+    cin>>t;
 
-    while(test--)
+    while(t--)
     {
         string s;
         cin>>s;
@@ -19,42 +18,42 @@ int main ()
             continue;
         }
 
-        int zero = 0, one = 0;
+        int z = 0, o = 0;
         for(char c : s)
         {
             if(c == '0')
-            zero++;
+            z++;
             else
-            one++;
+            o++;
         }
 
-        bool flag = false;
+        bool f = false;
         for(char c : s)
         {
             if(c == '0')
             {
-                if(one >0)
-                one--;
+                if(o >0)
+                o--;
                 else
                 {
-                    cout<<zero<<'\n';
-                    flag = true;
+                    cout<<z<<'\n';
+                    f = true;
                     break;
                 }
             }
             else
             {
-                if(zero > 0)
-                zero--;
+                if(z > 0)
+                z--;
                 else
                 {
-                    cout<<one<<'\n';
-                    flag = true;
+                    cout<<o<<'\n';
+                    f = true;
                     break;
                 }
             }
         }
-        if(!flag)
+        if(!f)
         cout<<0<<'\n';
     }
 }

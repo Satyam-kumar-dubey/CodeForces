@@ -35,27 +35,46 @@ int main ()
         if(fl)
         continue;
 
-        set<string>sb;
-        for(int i=0; i<n; i++)
-        {   
-            string tp;
-            tp += s[i];
-            sb.insert(tp);
-            for(int j=i+1; j<n; j++)
-            {
-                tp += s[j];
-                sb.insert(tp);
-            }
-        }
-        string a;
-        for(int i=0; i<26; i++)
+
+        for(char i = 'a'; i<='z' && !fl;  i++)
         {
-            a += (char)(i + 'a');
-            if(!sb.count(a))
+            for(char j='a'; j<='z'; j++)
             {
-                cout<<a<<'\n';
-                break;
+                string tp = "";
+                tp += i;
+                tp += j;
+
+                if(s.find(tp) == string::npos)
+                {
+                    cout<<tp<<'\n';
+                    fl = true;
+                    break;
+                }
             }
         }
+        if(fl)
+        continue;
+
+        for(char i='a'; i<='z' && !fl; i++)
+        {
+            for(char j='a'; j<='z' && !fl; j++)
+            {
+                for(char k='a'; k<='z'; k++)
+                {
+                    string tp = "";
+                    tp += i;
+                    tp += j;
+                    tp += k;
+
+                    if(s.find(tp) == string::npos)
+                    {
+                        cout<<tp<<'\n';
+                        fl = true;
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 }

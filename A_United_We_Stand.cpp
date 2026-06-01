@@ -53,6 +53,8 @@ int main ()
         for(int i=0; i<=id; i++)
         a.push_back(v[i]);
 
+        cout<<a.size()<<" "<<b.size()<<'\n';
+
         for(int x : a)
         cout<<x<<" ";
         cout<<'\n';

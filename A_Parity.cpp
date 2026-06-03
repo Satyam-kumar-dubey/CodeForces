@@ -1,24 +1,26 @@
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+using ll = long long;
 
 int main ()
 {
-    double base;
-    int no;
-    cin>>base>>no;
+    double b;
+    int n;
+    cin>>b>>n;
 
-    vector<int>arr(no);
-    for(int i=0; i<no; i++)
-    cin>>arr[i];
+    vector<int>v(n);
+    for(int i=0; i<n; i++)
+    cin>>v[i];
 
-    long long ans = 0;
-    for(int i =0; i<no; i++)
+    ll a = 0;
+    for(int i =0; i<n; i++)
     {
-        ans += arr[i]*pow(base,no-i-1);
+        a += v[i]*pow(b,n-i-1);
     }
 
-    if(ans % 2 != 0)
+    if(a % 2 != 0)
     cout<<"odd";
     else
     cout<<"even";

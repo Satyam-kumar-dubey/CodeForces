@@ -1,48 +1,46 @@
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
+string game(vector<int> &v, int n)
+{
+    if (n % 2 != 0)
+    return "Mike";
 
-int main ()
+    int mn = -1;
+    int idx = INT_MAX;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i] < idx)
+        {
+            idx = v[i];
+            mn = i;
+        }
+    }
+
+    if (mn % 2 == 0)
+    return "Joe";
+
+    return "Mike";
+}
+
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     int t;
     cin>>t;
 
-    while(t--)
+    while (t--)
     {
         int n;
         cin>>n;
-        vector<ll>v(n);
-        
-        for(auto &it : v)
-        cin>>it;
-        
-        int m = 0, j = 0;
-        for(int i=0; i<n; i++)
-        {
-            if(i % 2 == 0)
-            {
-                if(v[i] % 2 == 1)
-                m++;
-                else
-                j++;
-            }
-            else
-            {
-                if(v[i] % 2 == 1)
-                j++;
-                else
-                m++;
-            }
-        }
-        if(m > j)
-        cout<<"Mike"<<'\n';
-        else 
-        cout<<"Joe"<<'\n';
+
+        vector<int> v(n);
+        for(int i = 0; i < n; i++)
+        cin>>v[i];
+
+        cout<<game(v, n)<<"\n";
     }
-    
 }

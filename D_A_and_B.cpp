@@ -2,51 +2,50 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
+#define ll long long int
 
-ll slv(char c, string s)
+ll solve(char ch, string s)
 {
-    vector<int>ps;
-    for(char ch : s)
-    {
-        if(ch == c)
-        ps.push_back(1);
-    }
+	vector<int>pos;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == ch)
+		pos.push_back(i);
+	}
 
-    for(int i=0; i<ps.size(); i++)
-    ps[i] -= i;
+	if(pos.size() <= 1)
+	return 0;
 
-    int md = ps.size() / 2;
-    ll ans = 0;
+	for (int i = 0; i < pos.size(); i++)
+	pos[i] -= i;
 
-    for(int i=0; i<ps.size(); i++)
-    {
-        ans += abs(ps[i] - ps[md]);
-    }
+	int med = pos.size() / 2;
+	ll total = 0;
 
-    return ans;
+	for (int i = 0; i < pos.size(); i++)
+	total += abs(pos[i] - pos[med]);
 
+	return total;
 }
 
-int main ()
+int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    
-    int t;
-    cin>>t;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 
-    while(t--)
-    {
-        int n;
-        string s;
-        cin>>n>>s;
+	int t;
+	cin>>t;
 
-        ll a = LLONG_MAX;
-        a = min(a,slv('a',s));
-        a = min(a,slv('b',s));
+	while (t--)
+	{
+		int n;
+		cin>>n;
+		string s;
+		cin>>s;
 
-        cout<<a<<'\n';
-    }
-    
+		ll ans = 1e15;
+		ans = min(ans, solve('a', s));
+		ans = min(ans, solve('b', s));
+		cout<<ans<<'\n';
+	}
 }

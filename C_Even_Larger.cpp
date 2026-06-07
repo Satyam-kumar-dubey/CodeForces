@@ -35,9 +35,12 @@ int main ()
             d = min(d,v[i+1]);
 
             if(v[i] > d)
-            a += v[i] - d;
-            v[i] = d;
+            {
+                a += v[i] - d;
+                v[i] = d;
+            }
         }
         cout<<a<<'\n';
     }
+
 }

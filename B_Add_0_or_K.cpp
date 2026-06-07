@@ -4,47 +4,40 @@ using namespace std;
 
 using ll = long long;
 
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     int t;
     cin>>t;
 
     while(t--)
     {
-        int n,k;
+        int n;
+        ll k;
         cin>>n>>k;
 
-        vector<int>v(n);
-        for(auto &x : v)
-        cin>>x;
+        vector<ll>v(n);
+        for (auto &x : v)
+        cin >> x;
 
-        if(k % 2 == 1)
+        if (k & 1)
         {
-            for(int &x : v)
-            {
-                if(x % 2 == 1)
-                x = x + k;
-            }
-            for(int x : v)
-            cout<<x<<" ";
-            cout<<'\n';
+            for (auto &x : v)
+            if (x & 1) x += k;
         }
         else
         {
-            vector<int>r(n);
-            for(int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
-                r[i] = v[i] % (k+1);
+                ll r = v[i] % (k + 1);
+                v[i] += r * k;
             }
-            for(int i=0; i<n; i++)
-            v[i] = v[i] + r[i]*k;
-
-            for(auto x : v)
-            cout<<x<<" ";
-            cout<<'\n';
         }
+
+        for (ll x : v)
+        cout<<x<<' ';
+        cout<<'\n';
     }
 }

@@ -1,10 +1,9 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
 using ll = long long;
 
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -12,53 +11,38 @@ int main ()
     int t;
     cin>>t;
 
-    while(t--)
+    while (t--)
     {
         int n, k;
         cin>>n>>k;
+
         string s;
         cin>>s;
 
-        int o = 0, p = 0;
+        vector<int> st;
+        vector<pair<int,int>>p;
 
-        for(char ch : s)
+        for (int i = 0; i < n; i++)
         {
-            if(ch == '(')
-                o++;
+            if (s[i] == '(')
+            st.push_back(i);
             else
             {
-                if(o > 0)
+                if (!st.empty())
                 {
-                    o--;
-                    p++;
+                    p.push_back({st.back(), i});
+                    st.pop_back();
                 }
             }
         }
 
-        int del = min(p, k);
+        int del = min(k, (int)p.size());
 
         string ans(n, '0');
-        stack<int> st;
 
-        for(int i = 0; i < n; i++)
-        {
-            if(s[i] == '(')
-            st.push(i);
-            else
-            {
-                if(!st.empty())
-                {
-                    int pos = st.top();
-                    st.pop();
+        for(int i = 0; i < del; i++)
+        ans[p[i].first] = '1';
 
-                    if(del > 0)
-                    {
-                        ans[pos] = '1';   
-                        del--;
-                    }
-                }
-            }
-        }
         cout<<ans<<'\n';
     }
 }

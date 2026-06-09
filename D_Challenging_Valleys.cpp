@@ -22,8 +22,16 @@ int main ()
         cin>>v[i];
 
         int c = 0;
-        if(v[1] > v[0] || v[n-2] > v[n-1])
-        c++;
+        if(v[1] > v[0] && v[n-2] > v[n-1])
+        {
+            cout<<"NO"<<'\n';
+            continue;
+        }
+
+        for(int i=1; i<n; i++)
+        {
+            
+        }
     }
     
 }

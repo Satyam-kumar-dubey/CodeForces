@@ -4,11 +4,11 @@ using namespace std;
 
 using ll = long long;
 
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     int t;
     cin>>t;
 
@@ -17,21 +17,30 @@ int main ()
         int n;
         cin>>n;
 
-        vector<int>v(n);
-        for(int i=0; i<n; i++)
-        cin>>v[i];
+        vector<ll>a(n);
+        for (int i = 0; i < n; i++)
+        cin>>a[i];
 
-        int c = 0;
-        if(v[1] > v[0] && v[n-2] > v[n-1])
+        vector<ll>b;
+
+        for(int i = 0; i < n; i++)
         {
-            cout<<"NO"<<'\n';
-            continue;
+            if (i == 0 || a[i] != a[i - 1])
+            b.push_back(a[i]);
         }
 
-        for(int i=1; i<n; i++)
+        int s = b.size();
+        int cnt = 0;
+
+        for (int i = 0; i < s; i++)
         {
-            
+            bool l = (i == 0 || b[i - 1] > b[i]);
+            bool r = (i == s - 1 || b[i + 1] > b[i]);
+
+            if(l && r)
+            cnt++;
         }
+
+        cout<<(cnt == 1 ? "YES" : "NO")<<'\n';
     }
-    
 }

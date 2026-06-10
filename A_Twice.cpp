@@ -2,13 +2,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     int t;
     cin>>t;
 
@@ -17,26 +15,19 @@ int main ()
         int n;
         cin>>n;
 
-        vector<int>v(n), vis(n,0);
-        set<int>s;
-        for(auto &x : v)
+        vector<int>fr(n + 1, 0);
+
+        for (int i = 0; i < n; i++)
         {
+            int x;
             cin>>x;
+            fr[x]++;
         }
-        
-        s.insert(v[0]);
-        vis[0] = 1;
+
         int sc = 0;
-        for(int i=1; i<n; i++)
-        {
-            if(!vis[i] && s.count(v[i]))
-            {
-                sc++;
-                vis[i] = 1;
-            }
-            s.insert(v[i]);
-        }
+        for (int x = 1; x <= n; x++)
+        sc += fr[x] / 2;
+
         cout<<sc<<'\n';
     }
-    
 }

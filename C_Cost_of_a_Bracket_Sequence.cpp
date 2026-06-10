@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -13,36 +14,57 @@ int main()
 
     while (t--)
     {
-        int n, k;
-        cin>>n>>k;
-
+        int n,k;
         string s;
-        cin>>s;
+        cin>>n>>k>>s;
 
-        vector<int> st;
-        vector<pair<int,int>>p;
-
+        vector<int>o(n + 1),c(n + 1);
         for (int i = 0; i < n; i++)
         {
-            if (s[i] == '(')
-            st.push_back(i);
+            o[i + 1] = o[i];
+            c[i + 1] = c[i];
+
+            if(s[i] == '(')
+            o[i + 1]++;
             else
+            c[i + 1]++;
+        }
+
+        int temp = c[n];
+        int mini = n+1;
+        int p = 0;
+
+        for(int i = 0; i <= n; i++)
+        {
+            int cr = o[i]+(temp - c[i]);
+
+            if (cr < mini)
             {
-                if (!st.empty())
-                {
-                    p.push_back({st.back(), i});
-                    st.pop_back();
-                }
+                mini = cr;
+                p = i;
             }
         }
 
-        int del = min(k, (int)p.size());
-
+        int del = min(k, mini);
         string ans(n, '0');
 
-        for(int i = 0; i < del; i++)
-        ans[p[i].first] = '1';
+        for (int i = 0; i < p && del; i++)
+        {
+            if (s[i] == '(')
+            {
+                ans[i] = '1';
+                del--;
+            }
+        }
 
+        for(int i = n - 1; i >= p && del; i--)
+        {
+            if (s[i] == ')')
+            {
+                ans[i] = '1';
+                del--;
+            }
+        }
         cout<<ans<<'\n';
     }
 }

@@ -1,30 +1,30 @@
 
-#include <iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main()
+{
 
-    int totalTestCases;
-    cin>>totalTestCases;
+    int t;
+    cin>>t;
 
-    while (totalTestCases--) 
+    while (t--) 
     {
-        int size;
-        cin>>size;
-        vector<int> arr(size + 2, 0);
+        int n;
+        cin>>n;
+        vector<int>v(n + 2, 0);
 
-        for (int i=0; i<size; i++) 
+        for (int i=0; i<n; i++) 
         {
-            int value;
-            cin>>value;
-            arr[value]++;
+            int x;
+            cin>>x;
+            v[x]++;
         }
-        if (arr[0]==0) 
+        if (v[0]==0) 
         {
             cout<<"NO"<<'\n';
         }
-        else if (arr[0] >= 2 && arr[1] == 0) 
+        else if (v[0] >= 2 && v[1] == 0) 
         {
             cout<<"NO"<<'\n';
         }

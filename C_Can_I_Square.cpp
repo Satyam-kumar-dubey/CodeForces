@@ -25,16 +25,11 @@ int main ()
             s += x;
         }
         
-        bool f = false;
-        for(int i=1; i*i <=s; i++)
-        {
-            if(i*i == s)
-            {
-                f = true;
-                break;
-            }
-        }
-        cout<<(f ? "YES" : "NO")<<'\n';
+        ll a = sqrtl(s);
+        if(a*a == s)
+        cout<<"YES"<<'\n';
+        else 
+        cout<<"NO"<<'\n';
     }
     
 }

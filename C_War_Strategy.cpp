@@ -1,31 +1,35 @@
-#include <iostream>
-#include<vector>
-#include<algorithm>
+
+#include<bits/stdc++.h>
 using namespace std;
 
-int war(int n, long long m, int k) {
-    int Lmax = k - 1;
-    int Rmax = n - k;
+using ll = long long;
+
+int war(int n, ll m, int k)
+{
+    int l = k - 1;
+    int r = n - k;
 
     int ans = 1;
-    if (m >= 1 && n > 1) ans = 2;
+    if(m >= 1 && n > 1)
+    ans = 2;
 
-    int maxD = max(Lmax, Rmax);
+    int mxd = max(l, r);
 
-    for (int D = 1; D <= maxD; D++) {
-        long long sLim = m - 2LL * D + 1;
-        if (sLim < 0) continue;
+    for (int i = 1; i <= mxd; i++) {
+        ll temp = m - 2LL * i + 1;
+        if (temp < 0)
+        continue;
 
-        long long s = min((long long)D, sLim);
+        ll s = min((ll)i, temp);
 
-        if (D <= Lmax) {
-            long long s2 = min(s, (long long)Rmax);
-            ans = max(ans, (int)(1 + D + s2));
+        if (i <= l) {
+            ll s2 = min(s, (ll)r);
+            ans = max(ans, (int)(1 + i + s2));
         }
 
-        if (D <= Rmax) {
-            long long s2 = min(s, (long long)Lmax);
-            ans = max(ans, (int)(1 + D + s2));
+        if (i <= r) {
+            ll s2 = min(s, (ll)l);
+            ans = max(ans, (int)(1 + i + s2));
         }
     }
 
@@ -34,14 +38,13 @@ int war(int n, long long m, int k) {
 
 int main() {
     
-
-    int tests;
-    cin >> tests;
-    while (tests--) {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         int n, k;
-        long long m;
-        cin >> n >> m >> k;
-        cout << war(n, m, k) << '\n';
+        ll m;
+        cin>>n>>m>>k;
+        cout<<war(n, m, k)<<'\n';
     }
-    return 0;
 }

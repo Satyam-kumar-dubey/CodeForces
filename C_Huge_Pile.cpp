@@ -1,45 +1,49 @@
-#include <iostream>
+
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int testCases;
-    cin >> testCases;
+using ll = long long;
 
-    while (testCases--) {
-        long long initialPile, neededPile;
-        cin >> initialPile >> neededPile;
+int main ()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    int t;
+    cin>>t;
 
-        if (neededPile > initialPile) {
-            cout << -1 << '\n';
+    while(t--)
+    {
+        ll n,k;
+        cin>>n>>k;
+
+        if(k > n)
+        {
+            cout<<-1<<'\n';
             continue;
         }
-        if (neededPile == initialPile) {
-            cout << 0 << '\n';
+        if(k == n)
+        {
+            cout<<0<<'\n';
             continue;
         }
 
-        long long minSize = initialPile;
-        long long maxSize = initialPile;
-
-        int minutes = 0;
-        int answer = -1;
-
-        
-        while (minutes <= 60) {
-            if (minSize <= neededPile && neededPile <= maxSize) {
-                answer = minutes;
+        ll mx = n, mn = n, ti = 0, a = -1;
+        while(ti <= 60)
+        {
+            if(mn <= k && k <= mx)
+            {
+                a = ti;
                 break;
             }
+            mx = (mx + 1) / 2;
+            mn = mn / 2;
+            ti++;
 
-            minSize = minSize / 2;           
-            maxSize = (maxSize + 1) / 2;     
-            minutes++;
-
-            if (maxSize < neededPile) break;
+            if(mx < k)
+            break;
         }
-
-        cout << answer << '\n';
+        cout<<a<<'\n';
     }
-
-    return 0;
+    
 }

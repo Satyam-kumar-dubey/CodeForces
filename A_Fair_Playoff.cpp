@@ -17,11 +17,13 @@ int main ()
         int a,b,c,d;
         cin>>a>>b>>c>>d;
 
-        int tr = max(a,b);
-        int mn = min(c,d);
-        int mx = max(c,d);
+        int fm = max(a,b);
+        int sm = max(c,d);
 
-        if(tr > mn && tr < mx)
+        vector<int>v = {a,b,c,d};
+        sort(v.begin(),v.end());
+
+        if(min(fm,sm) == v[2] && max(fm,sm) == v[3])
         cout<<"YES"<<'\n';
         else
         cout<<"NO"<<'\n';

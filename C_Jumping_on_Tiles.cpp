@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -27,20 +25,34 @@ int main()
         {
             int val = s[i] - 'a' + 1;
 
-            if (min(st, en) <= val && val <= max(st, en))
-            v.push_back({val, i + 1});
+            if(min(st, en) <= val && val <= max(st, en))
+                v.push_back({val, i + 1});
         }
 
-        if (st <= en)
-        sort(v.begin(), v.end());
+        if(st <= en)
+        {
+            stable_sort(v.begin(), v.end(),
+                        [](const auto &a, const auto &b)
+                        {
+                            return a.first < b.first;
+                        });
+        }
         else
-        sort(v.begin(), v.end(), greater<pair<int, int>>());
+        {
+            stable_sort(v.begin(), v.end(),
+                        [](const auto &a, const auto &b)
+                        {
+                            return a.first > b.first;
+                        });
+        }
 
         cout << abs(st - en) << " " << v.size() << '\n';
 
-        for (auto &[val, idx] : v)
-        cout << idx << " ";
+        for(auto &[val, idx] : v)
+            cout << idx << " ";
+
         cout << '\n';
     }
 
+    return 0;
 }

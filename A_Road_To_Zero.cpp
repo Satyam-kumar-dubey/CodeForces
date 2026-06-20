@@ -14,11 +14,11 @@ int main ()
 
     while(t--)
     {
-        int x,y,a,b;
+        ll x,y,a,b;
         cin>>x>>y>>a>>b;
 
-        int mn = min(x,y);
-        int mx = max(x,y);
+        ll mn = min(x,y);
+        ll mx = max(x,y);
 
         ll c = (x+y)*a;
         int d = mx - mn;

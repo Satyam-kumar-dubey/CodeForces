@@ -1,39 +1,32 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     string s;
     cin>>s;
 
-    for(int i=0; i<s.size()-2; i++)
+    for(int i = 0; i + 2 < s.size(); )
     {
-        if(s[i] == 'W' && s[i+1] == 'U' && s[i+2] == 'B')
+        if (s.substr(i, 3) == "WUB")
         {
-            s[i] = '*';
-            s[i+1] = '*';
-            s[i+2] = '*';
+            s.replace(i, 3, " ");
+            i++;
+        }
+        else
+        {
+            i++;
         }
     }
-    
-    int it = 0;
-    while(it < s.size())
+
+    stringstream ss(s);
+    string word;
+
+    while(ss >> word)
     {
-        string a;
-        while(s[it] != '*')
-        {
-            a += s[it];
-            it++;
-        }
-        it++;
-        if(!a.empty())
-        cout<<a<<" ";
+        cout << word << " ";
     }
-    
 }

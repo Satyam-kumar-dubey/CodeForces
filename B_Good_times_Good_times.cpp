@@ -1,25 +1,53 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
+using ll = long long;
 
-void in(vector<int>&v)
-{
-    for(auto &x: v)
-    cin>>x;
-}
+vector<ll> good;
 
-bool check(ll n)
+bool check(ll x)
 {
     int mask = 0;
-    while(n > 0)
+
+    while(x)
     {
-        mask |= (1 << (n % 10));
-        n /= 10;
+        mask |= (1 << (x % 10));
+        x /= 10;
     }
 
     return __builtin_popcount(mask) <= 2;
+}
+
+void gen(int len, int mx, int d1, int d2, ll cur)
+{
+    if(len > 0 && cur >= 2 && cur <= 1000000000LL)
+        good.push_back(cur);
+
+    if(len == mx)
+        return;
+
+    if(len > 0 || d1 != 0)
+        gen(len + 1, mx, d1, d2, cur * 10 + d1);
+
+    if(d1 != d2)
+    {
+        if(len > 0 || d2 != 0)
+            gen(len + 1, mx, d1, d2, cur * 10 + d2);
+    }
+}
+
+void pre()
+{
+    for(int i = 0; i <= 9; i++)
+    {
+        for(int j = i; j <= 9; j++)
+        {
+            gen(0, 9, i, j, 0);
+        }
+    }
+
+    sort(good.begin(), good.end());
+    good.erase(unique(good.begin(), good.end()), good.end());
 }
 
 void solve()
@@ -27,49 +55,28 @@ void solve()
     ll x;
     cin >> x;
 
-    for(ll y = 2; y <= 10000; y++)
+    for(auto y : good)
     {
-        if(check(y) && check(x * y))
+        if(check(x * y))
         {
-            cout << y << endl;
+            cout << y << '\n';
             return;
-        }
-    }
-
-    for(int len = 1; len <= 17; len++)
-    {
-        for(int d = 1; d <= 9; d++)
-        {
-            ll val = 0;
-
-            for(int i = 0; i < len; i++)
-                val = val * 10 + d;
-
-            if(val % x == 0)
-            {
-                ll y = val / x;
-
-                if(y >= 2 && y <= 1000000000LL && check(y))
-                {
-                    cout << y << endl;
-                    return;
-                }
-            }
         }
     }
 }
 
-signed main()
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    pre();
 
     int t;
     cin >> t;
 
     while(t--)
-    {
         solve();
-    }
+
+    return 0;
 }

@@ -1,56 +1,58 @@
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 using ll = long long;
-
-void in(vector<int>&v)
+void in(vector<int> &v)
 {
-    for(auto &x: v)
-    cin>>x;
+    for (auto &x : v)
+    cin >> x;
 }
 
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
-    int t;
-    cin>>t;
 
-    while(t--)
+    int t;
+    cin >> t;
+
+    while (t--)
     {
         int n;
-        cin>>n;
+        cin >> n;
 
-        vector<int>v(n);
+        vector<int> v(n);
         in(v);
 
-        sort(v.begin(),v.end());
+        sort(v.begin(), v.end());
 
-        bool f = true;
-        int it = 0;
-        while(it < n)
+        int odd = 0, even = 0;
+
+        for (int x : v)
         {
-            if(it+1 < n && v[it] % 2 == 0 && v[it+1] % 2 == 0)
-            {
-                it = it+2;
-            }
-            else if(it+1 < n && v[it] % 2 == 1 && v[it+1] % 2 == 1)
-            {
-                it = it+2;
-            }
-            else if(it+1 < n && (v[it+1] - v[it] ==1))
-            {
-                it = it+2;
-            }
+            if (x % 2)
+            odd++;
             else
+            even++;
+        }
+
+        if (odd % 2 == 0 && even % 2 == 0)
+        {
+            cout<<"YES\n";
+            continue;
+        }
+
+        bool f = false;
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (v[i + 1] - v[i] == 1)
             {
-                f = false;
+                f = true;
                 break;
             }
         }
-        cout<<(!f ? "NO" : "YES")<<'\n';
+
+        cout << (f ? "YES" : "NO") << '\n';
     }
-    
 }

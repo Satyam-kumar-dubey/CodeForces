@@ -1,49 +1,74 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
+#define ll long long
+#define endl '\n'
 
-bool check(ll  n)
+void in(vector<int>&v)
 {
-    string s = to_string(n);
-    set<char>st(s.begin(), s.end());
-    return st.size() <= 2;
+    for(auto &x: v)
+    cin>>x;
+}
+
+bool check(ll n)
+{
+    int mask = 0;
+    while(n > 0)
+    {
+        mask |= (1 << (n % 10));
+        n /= 10;
+    }
+
+    return __builtin_popcount(mask) <= 2;
 }
 
 void solve()
 {
-   ll x;
+    ll x;
     cin >> x;
 
-    for (ll y = 2; y <= 100000; ++y)
+    for(ll y = 2; y <= 10000; y++)
     {
-        if (check(y) && check(x * y))
+        if(check(y) && check(x * y))
         {
-            cout<<y<<"\n";
+            cout << y << endl;
             return;
         }
     }
-    for (int i = 2; i <= 9; ++i)
+
+    for(int len = 1; len <= 17; len++)
     {
-        for (int digit = 1; digit <= 9; ++digit)
+        for(int d = 1; d <= 9; d++)
         {
-           ll y = stoll(string(i, '0' + digit));
-            if(check(x * y))
+            ll val = 0;
+
+            for(int i = 0; i < len; i++)
+                val = val * 10 + d;
+
+            if(val % x == 0)
             {
-                cout<<y<<"\n";
-                return;
+                ll y = val / x;
+
+                if(y >= 2 && y <= 1000000000LL && check(y))
+                {
+                    cout << y << endl;
+                    return;
+                }
             }
         }
     }
 }
 
-int main()
+signed main()
 {
-    int t;
-    cin>>t;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-    while (t--)
+    int t;
+    cin >> t;
+
+    while(t--)
     {
         solve();
     }

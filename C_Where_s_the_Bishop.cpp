@@ -3,7 +3,7 @@ using namespace std;
 
 using ll = long long;
 
-void in(vector<ll>&v)
+void in(vector<int>&v)
 {
     for(auto &x: v)
     cin>>x;
@@ -22,34 +22,20 @@ bool prime(ll n)
 
 void solve()
 {
-    int n;
-    cin>>n;
+    vector<string>v(8);
+    for(auto &s : v)
+    cin>>s;
 
-    vector<ll>v(n);
-    in(v);
-
-    vector<ll>ps(n+1);
-    ps[0] = 0;
-    for(int i=0; i<n; i++)
+    for(int i = 1; i < 7; i++)
     {
-        if(i%2 == 0)
-        ps[i+1] = ps[i] + v[i];
-        else
-        ps[i+1] = ps[i] - v[i];
-    }
-    set<ll>s;
-    bool f = true;
-    for(auto &x : ps)
-    {
-        if(s.count(x))
+        for(int j = 1; j < 7; j++)
         {
-            f = false;
-            break;
+            if (v[i][j] == '#' && v[i-1][j-1] == '#' && v[i-1][j+1] == '#' && v[i+1][j-1] == '#' && v[i+1][j+1] == '#') {
+                cout<<i + 1 << " " << j + 1<<"\n";
+                return;
+            }
         }
-        s.insert(x);
     }
-    cout<<(!f ? "YES" : "NO")<<'\n';
-
 }
 
 int main ()

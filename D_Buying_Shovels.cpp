@@ -28,7 +28,7 @@ void solve()
                 if(i <= k)
                 mx = max(i,mx);
                 if(n/i <= k)
-                mx = max(i,n/i);
+                mx = max(mx,n/i);
             }
         }
         cout<<n/mx<<'\n';

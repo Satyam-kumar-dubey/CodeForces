@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -7,15 +6,16 @@ using ll = long long;
 void in(vector<int>&v)
 {
     for(auto &x: v)
-    cin>>x;
+        cin >> x;
 }
+
 bool prime(ll n)
 {
     if(n <= 1)
     return false;
-    for(ll i=2; i*i <= n; i++)
+    for(ll i = 2; i * i <= n; i++)
     {
-        if(n%i == 0)
+        if(n % i == 0)
         return false;
     }
     return true;
@@ -23,41 +23,40 @@ bool prime(ll n)
 
 void solve()
 {
-    int n,q;
-    cin>>n>>q;
+    int n, q;
+    cin >> n >> q;
 
-    vector<int>v(n);
+    vector<int> v(n);
     in(v);
 
-    vector<pair<int,int>>qr(q);
-    for(auto &x: qr)
-    cin>>x.first>>x.second;
+    vector<pair<int,int>> qr(q);
+    for(auto &x : qr)
+    cin >> x.first >> x.second;
 
-    sort(v.begin(),v.end());
-    for(int i=0; i<q; i++)
+    sort(v.begin(), v.end());
+
+    vector<ll> pref(n + 1, 0);
+    for(int i = 0; i < n; i++)
+    pref[i + 1] = pref[i] + v[i];
+
+    for(int i = 0; i < q; i++)
     {
-        vector<int>a;
-        int it = n-1, val = qr[i].first;
-        while(val--)
-        {
-            a.push_back(v[it]);
-            it--;
-        }
+        int x = qr[i].first;
+        int y = qr[i].second;
 
-        sort(a.begin(),a.end());
-        ll ans = 0;
-        for(int j=0; j<qr[i].second; j++)
-        ans += a[j];
+        int l = n - x;
+        int r = l + y;
 
-        cout<<ans<<'\n';
+        cout << pref[r] - pref[l] << '\n';
     }
 }
 
-int main ()
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     solve();
-    
+
+    return 0;
 }

@@ -22,38 +22,30 @@ bool prime(ll n)
 
 void solve()
 {
-    int n;
-    string s;
-    cin >> n >> s;
+        int n;
+        cin >> n;
 
-    int cnt = 1;
+        int sum = 0;
 
-    for (int i = 1; i < n; i++)
-    {
-        if (s[i] != s[i - 1])
-        cnt++;
-    }
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            sum += x;
+        }
 
-    int ans = cnt;
-
-    for (int i = 1; i < n - 1; i++)
-    {
-        int cur = cnt;
-
-        if (s[i] != s[i - 1])
-        cur--;
-
-        if (s[i] != s[i + 1])
-        cur--;
-
-        if (s[i - 1] != s[i + 1])
-        cur++;
-
-        ans = min(ans, cur);
-    }
-
-    cout << ans << '\n';
-
+        if (sum == n)
+        {
+            cout << 0 << endl;
+        } 
+        else if (sum < n)
+        {
+            cout << 1 << endl;
+        } 
+        else
+        {
+            cout << sum - n << endl;
+        }
 }
 
 int main ()

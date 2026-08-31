@@ -20,23 +20,24 @@ bool prime(ll n)
     return true;
 }
 
-string b = "3141592653589793238462643383279";
-
 void solve()
 {
-    string a;
-    cin >> a;
+        int n, k, p;
+        cin >> n >> k >> p;
 
-    int count = 0;
-    int i = 0;
-
-    while (i < a.length() && a[i] == b[i])
-    {
-        count++;
-        i++;
-    }
-
-    cout << count << '\n';
+        if (k == 0)
+        {
+            cout << 0 << '\n';
+        }
+        else if (abs(k) > n * p)
+        {
+            cout << -1 << '\n';
+        }
+        else
+        {
+            int operations = (abs(k) + p - 1) / p;
+            cout << operations << '\n';
+        }
 }
 
 int main ()

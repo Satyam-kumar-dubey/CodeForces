@@ -1,45 +1,46 @@
-
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
+
+using ll = long long;
 
 int main ()
 {
-    int test;
-    cin>>test;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(test--)
+    int t;
+    cin >> t;
+
+    while(t--)
     {
-        int size;
-        cin>>size;
-        vector<long long>arr(size);
-        for(int i=0; i<size; i++)
-        cin>>arr[i];
+        int n;
+        cin >> n;
 
-        long long mex = 0;
+        vector<ll>v(n);
+        for(auto &x : v)
+        cin >> x;
 
-        for(int i=0; i<size; i++)
+        sort(v.begin(), v.end());
+
+        v.erase(unique(v.begin(), v.end()), v.end());
+
+        ll ans = 1;
+        ll cur = 1;
+
+        for(ll i = 1; i < v.size(); i++)
         {
-            vector<bool>visited(size+1,0);
-            long long shiftingValue = -(arr[i]);
-
-            for(long long val : arr)
+            if(v[i] == v[i-1] + 1)
             {
-                long long shifted = shiftingValue + val;
-                if(shifted >=0 && shifted <= size)
-                visited[shifted] = 1;
+                cur++;
+            }
+            else
+            {
+                cur = 1;
             }
 
-            long long tempMex = 0;
-            while(tempMex <= size && visited[tempMex])
-            tempMex++;
-
-            mex = max(mex,tempMex);
-
-            if(mex == size)
-            break;
+            ans = max(ans, cur);
         }
-        cout<<mex<<endl;
+
+        cout << ans << '\n';
     }
 }

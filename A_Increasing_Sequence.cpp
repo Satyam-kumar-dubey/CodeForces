@@ -1,37 +1,24 @@
-
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-using ll = long long;
+int main() {
+    long long n, d, a, c = 0;
+    cin >> n >> d >> a;
 
-int main ()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    
-    int t;
-    cin>>t;
+    for (long long i = 1; i < n; i++) {
+        long long b;
+        cin >> b;
 
-    while(t--)
-    {
-        int n;
-        cin>>n;
-
-        vector<int>v(n);
-        for(int i=0; i<n; i++)
-        cin>>v[i];
-
-        int tp = 0;
-        for(int i=0; i<n; i++)
-        {
-            int vl = tp + 1;
-
-            if(vl == v[i])
-            vl++;
-
-            tp = vl;
+        if (a >= b) {
+            long long m = (a - b) / d + 1;
+            b += m * d;
+            c += m;
         }
-        cout<<tp<<"\n";
+
+        a = b;
     }
-    
+
+    cout << c << endl;
+
+    return 0;
 }

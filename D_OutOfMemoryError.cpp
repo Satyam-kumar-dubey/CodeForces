@@ -1,9 +1,10 @@
 
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main ()
+using ll = long long;
+
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -11,43 +12,52 @@ int main ()
     int t;
     cin>>t;
 
-    while(t--)
+    while (t--)
     {
-        int n,m;
-        long long h;
+        int n, m;
+        ll h;
         cin>>n>>m>>h;
 
-        vector<long long>v(n),og(n);
-        for(int i=0; i<n; i++)
+        vector<ll>a(n);
+        for(int i = 0; i < n; i++)
+        cin>>a[i];
+
+        vector<ll>add(n, 0);
+        vector<int>last(n, 0);
+
+        int lst_idx = 0;
+
+        for(int i = 1; i <= m; i++)
         {
-            cin>>v[i];
-            og[i] = v[i];
+            int b;
+            ll c;
+            cin>>b>>c;
+            b--;
+
+            if(last[b] < lst_idx)
+            {
+                add[b] = 0;
+                last[b] = lst_idx;
+            }
+
+            add[b] += c;
+
+            if(a[b] + add[b] > h)
+            {
+                lst_idx = i;
+                add[b] = 0;
+                last[b] = i;
+            }
         }
 
-        vector<pair<int,long long>>op(m);
-        for(int i=0; i<m; i++)
-        cin>>op[i].first>>op[i].second;
-
-        int l = -1;
-        for(int i=0; i<m; i++)
+        for(int i = 0; i < n; i++)
         {
-            int pos = op[i].first-1;
-            int val = op[i].second;
-            og[pos] += val;
+            if(last[i] < lst_idx)
+            add[i] = 0;
 
-            if(og[pos] > h)
-            l = i;
+            cout<<a[i] + add[i]<< " ";
         }
-
-        for(int i=l+1; i<m; i++)
-        {
-            int pos = op[i].first-1;
-            int val = op[i].second;
-            v[pos] += val;
-        }
-        for(int i=0; i<n; i++)
-        cout<<v[i]<<" ";
-
         cout<<"\n";
     }
+
 }

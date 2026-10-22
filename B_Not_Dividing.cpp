@@ -24,6 +24,8 @@ int main ()
         
         for(int i=1; i<n; i++)
         {
+            if(v[i] == 1)
+            v[i]++;
             if(v[i] % v[i-1] == 0)
             v[i]++;
             

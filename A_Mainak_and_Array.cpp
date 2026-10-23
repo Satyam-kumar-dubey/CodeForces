@@ -12,22 +12,22 @@ int main ()
 
     while(t--)
     {
-        int s;
-        cin>>s;
+        int n;
+        cin>>n;
 
-        vector<int>v(s);
-        for(int i=0; i<s; i++)
+        vector<int>v(n);
+        for(int i=0; i<n; i++)
         cin>>v[i];
 
-        int a = v[s-1] - v[0];
+        int a = v[n-1] - v[0];
 
-        for(int i=1; i<s; i++)
+        for(int i=1; i<n; i++)
         a = max(a, (v[i] - v[0]));
 
-        for(int i=0; i<s-1; i++)
-        a = max(a,(v[s-1]-v[i]));
+        for(int i=0; i<n-1; i++)
+        a = max(a,(v[n-1]-v[i]));
 
-        for(int i=0; i<s-1; i++)
+        for(int i=0; i<n-1; i++)
         a = max(a,(v[i]-v[i+1]));
 
         cout<<a<<'\n';

@@ -24,20 +24,20 @@ int main ()
             f[v[i]]++;
         }
 
-        bool fl = true;
+        bool flag = true;
         for(int i=1; i<=n; i++)
         {
             if(f[i] % k != 0)
             {
                 {
-                    fl = false;
+                    flag = false;
                     break;
                 }
             }
         }
-        if(!fl)
+        if(!flag)
         {
-            cout<<0<<'\n';
+            cout<<0<<"\n";
             continue;
         }
 
